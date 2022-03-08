@@ -1,4 +1,3 @@
 # TECBANK
-Proyecto de Requerimientos
+Se creo una nueva rama tons solo cambian de main a master
 
-Vayan al apartado de Proyects , usemos las etiquetas para mantener un control con el proyecto 
