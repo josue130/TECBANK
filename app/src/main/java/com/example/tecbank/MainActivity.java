@@ -18,13 +18,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Para que no se este ejecutando google maps solo tiene que cambiar setContentView(R.layout.activity_main);
-        // Ademas comentar las lineas 23,25,26 y de la 29 a la 38 :)
-        // Si le tira un error relacinado con eso me avisan porfa :)
-        setContentView(R.layout.googlemaps);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+
+        // Para ejecutar la prueba de google maps  tienen que cambiar activity_main por googlemaps
+        // Ademas tiene que descomentar la lineas 27 y 28
+        setContentView(R.layout.activity_main);
+
+        //SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        //mapFragment.getMapAsync(this);
     }
 
     @Override
