@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.278125" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/activity_register.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/content_register.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/fragment_first.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/fragment_second.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/googlemaps.xml" value="0.1" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/prueba.xml" value="0.2767210144927536" />
+        <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/registro.xml" value="0.2767210144927536" />
       </map>
     </option>
   </component>
