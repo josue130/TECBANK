@@ -3,9 +3,13 @@ package com.example.tecbank;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,8 +21,9 @@ import BaseDeDatos.SQLiteConnection;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    public SQLiteConnection db;
-    Button registrarse;
+    SQLiteConnection db = new SQLiteConnection(this);
+
+    Button registrarse, login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +43,38 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         });
 
+        login = findViewById(R.id.button2);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText usuario = findViewById(R.id.usuario);
+                EditText password = findViewById(R.id.password);
+                try{
+                    Cursor cursor = db.login(usuario.getText().toString(),password.getText().toString());
+                    if(cursor.getCount()>0){
+                        // Si el usuario y contraseña existe desde aqui se manda al otro
+                        Toast.makeText(getApplicationContext(),"Acceso concedido",Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Usuario no encontrado",Toast.LENGTH_LONG).show();
+                    }
+                    usuario.setText("");
+                    usuario.findFocus();
+                }
+                catch (SQLException e){
+
+                }
+
+
+
+            }
+        });
+
+
 //        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 //        mapFragment.getMapAsync(this);
 
-        //db = new SQLiteConnection(this);
-        //SQLiteDatabase conection = db.getWritableDatabase();
+
     }
 
     @Override

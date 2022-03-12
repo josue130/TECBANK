@@ -2,6 +2,8 @@ package BaseDeDatos;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
@@ -11,7 +13,7 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     final String CREATE_TABLE = "CREATE TABLE Customer (ID integer primary key autoincrement,name TEXT," +
             "correo TEXT,cuenta TEXT, contraseña TEXT)";
     public SQLiteConnection(@Nullable Context context) {
-        super(context, "Prueba.db", null, 1);
+        super(context, "Customer.db", null, 1);
     }
 
     @Override
@@ -43,6 +45,18 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         data.put("contraseña",contraseña);
         this.getWritableDatabase().insert("Customer",null,data);
     }
+    // Permite validar si usario existe
+
+    public Cursor login(String usuario,String contraseña) throws SQLException{
+        Cursor cursor = null;
+
+        cursor = this.getReadableDatabase().query("Customer",new String[]{"ID","name","correo","cuenta","contraseña"},
+                "name like '"+usuario+"' and contraseña like '"+contraseña+"'"
+                ,null,null,null,null);
+
+        return cursor;
+    }
+
 
 
 
