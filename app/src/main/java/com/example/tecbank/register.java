@@ -6,9 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import BaseDeDatos.SQLiteConnection;
 
 public class register extends AppCompatActivity {
@@ -31,21 +29,22 @@ public class register extends AppCompatActivity {
         Rcontinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.write();
-                db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
-                        String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()));
-                db.CLOSE();
+                if ( !(Rusuario.getText().toString().equals("")) && !(Rcorreo.getText().toString().equals("")) &&
+                        !(Rcuenta.getText().toString().equals("")) && !(Rcontraseña.getText().toString().equals(""))
+                ){
+                    db.write();
+                    db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
+                            String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()));
+                    db.CLOSE();
 
-                Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();
-                Intent i= new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(i);
+                    Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();
+                    Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                    startActivity(i);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Ningún campo puede quedar vacío", Toast.LENGTH_LONG).show();
+                }
             }
         });
-
-
-
     }
-
-
-
 }
