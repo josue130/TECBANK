@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:visibility="visible"
+    app:barrierMargin="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/barra"
+        android:layout_width="408dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="665dp"
+        android:background="#FF5858"
+        android:foregroundTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="146dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/app_name"
+            android:fontFamily="sans-serif"
+            android:freezesText="false"
+            android:text="@string/tecbank"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="@string/app_name"
+            android:fontFamily="sans-serif"
+            android:text="@string/movil"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="51dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/bank" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="409dp"
+        android:layout_height="84dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginBottom="569dp"
+        android:background="#60000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="25dp"
+            android:text="@string/transferencias"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal|bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/botonTransfer" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="33dp"
+            android:contentDescription="@string/app_name"
+            android:text="@string/salir"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal|bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botonSalir" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
+            android:text="@string/info"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal|bold"
+            android:visibility="visible"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/botonInfo" />
+
+        <ImageButton
+            android:id="@+id/botonTransfer"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/transfer"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toStartOf="@+id/botonInfo"
+            app:layout_constraintStart_toEndOf="@+id/botonAhorro"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="DuplicateSpeakableTextCheck" />
+
+        <ImageButton
+            android:id="@+id/botonSalir"
+            android:layout_width="46dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="22dp"
+            android:background="@drawable/salir"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/botonInfo"
+            android:layout_width="51dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="19dp"
+            android:background="@drawable/info"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintEnd_toStartOf="@+id/botonSalir"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <ImageButton
+            android:id="@+id/botonAhorro"
+            android:layout_width="46dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/ahorro"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintStart_toEndOf="@+id/botonHistorial"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/app_name"
+            android:text="@string/ahorro"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal|bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/botonAhorro" />
+
+        <ImageButton
+            android:id="@+id/botonHistorial"
+            android:layout_width="42dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/historial"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="11dp"
+            android:contentDescription="@string/app_name"
+            android:text="@string/historial"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="normal|bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botonHistorial" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="101dp"
+        android:text="Historial"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout2"
+        android:layout_width="361dp"
+        android:layout_height="477dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="31dp"
+        android:background="#FF5858"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.666">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout4"
+            android:layout_width="337dp"
+            android:layout_height="417dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="15dp"
+            android:background="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vCA3"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="321dp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="277dp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cuenta_acreditada"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="4dp"
+                tools:layout_editor_absoluteY="321dp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monto2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="361dp" />
+
+            <TextView
+                android:id="@+id/vFecha3"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="65dp"
+                tools:layout_editor_absoluteY="277dp" />
+
+            <TextView
+                android:id="@+id/vMonto3"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="61dp"
+                tools:layout_editor_absoluteY="364dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cuenta_acreditada"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="4dp"
+                tools:layout_editor_absoluteY="191dp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="147dp" />
+
+            <TextView
+                android:id="@+id/vFecha2"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="65dp"
+                tools:layout_editor_absoluteY="146dp" />
+
+            <TextView
+                android:id="@+id/vCA2"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="191dp" />
+
+            <TextView
+                android:id="@+id/vMonto2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="64dp"
+                tools:layout_editor_absoluteY="234dp" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monto2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="231dp" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="16dp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cuenta_acreditada"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="4dp"
+                tools:layout_editor_absoluteY="60dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/monto2"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="normal|bold"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="100dp" />
+
+            <TextView
+                android:id="@+id/vFecha"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="@string/textview"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
+                tools:layout_editor_absoluteY="17dp" />
+
+            <TextView
+                android:id="@+id/vCA"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="@string/textview"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="60dp" />
+
+            <TextView
+                android:id="@+id/vMonto"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/textview"
+                app:layout_constraintStart_toEndOf="@+id/textView13"
+                tools:layout_editor_absoluteY="103dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

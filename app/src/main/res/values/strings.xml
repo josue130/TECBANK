@@ -9,4 +9,35 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_gui">GUI</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="transferencias">Transferencias</string>
+    <string name="salir">Salir</string>
+    <string name="info">Info</string>
+    <string name="ahorro">Ahorro</string>
+    <string name="historial">Historial</string>
+    <string name="tecbank">TECBANK</string>
+    <string name="movil">Movil</string>
+    <string name="cuentas">Cuentas</string>
+    <string name="numero_cuenta">numero cuenta</string>
+    <string name="transferencia_entre_cuentas_tecbank">Transferencia entre cuentas TECBANK</string>
+    <string name="motivo_o_concepto">Motivo o Concepto</string>
+    <string name="cuenta_a_acreditar">Cuenta a acreditar</string>
+    <string name="monto">Monto</string>
+    <string name="c_digo_confirmaci_n">Código confirmación</string>
+    <string name="voucher_transferencia">Voucher Transferencia</string>
+    <string name="textview">TextView</string>
+    <string name="fecha">Fecha:</string>
+    <string name="nombre">Nombre:</string>
+    <string name="cuenta_debitada">Cuenta debitada:</string>
+    <string name="cuenta_acreditada">Cuenta acreditada:</string>
+    <string name="monto2">Monto:</string>
+    <string name="motivo_o_concepto2">Motivo o Concepto:</string>
+    <string name="textview">TextView</string>
+    <string name="textview">TextView</string>
+    <string name="textview">TextView</string>
+    <string name="textview">TextView</string>
+    <string name="nueva_transferencia">Nueva Transferencia</string>
+    <string name="textview">TextView</string>
 </resources>
