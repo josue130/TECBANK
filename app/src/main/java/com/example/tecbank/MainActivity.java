@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     try {
                         Cursor cursor = db.login(usuario.getText().toString(), password.getText().toString());
                         if (cursor.getCount() > 0) {
-                            // Si el usuario y contraseña existe desde aqui se manda al otro
+                            // Si el usuario y contraseña existe desde aqui se manda a la siguiente ventana
                             Toast.makeText(getApplicationContext(), "Acceso concedido", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(getApplicationContext(), "Usuario no encontrado", Toast.LENGTH_LONG).show();

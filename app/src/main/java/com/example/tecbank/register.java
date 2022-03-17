@@ -12,7 +12,7 @@ import BaseDeDatos.SQLiteConnection;
 
 public class register extends AppCompatActivity {
     Button Rcontinuar;
-    EditText Rusuario, Rcorreo, Rcuenta, Rcontraseña;
+    EditText Rusuario, Rcorreo, Rcuenta, Rcontraseña,Rmonto;
     public SQLiteConnection db = new SQLiteConnection(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +25,13 @@ public class register extends AppCompatActivity {
         Rcorreo = (EditText) findViewById(R.id.Rcorreo);
         Rcuenta = (EditText) findViewById(R.id.RCuenta);
         Rcontraseña = (EditText) findViewById(R.id.Rcontraseña);
+        Rmonto = (EditText) findViewById(R.id.Rmonto);
 
         Rcontinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if ( !(Rusuario.getText().toString().equals("")) && !(Rcorreo.getText().toString().equals("")) &&
-                        !(Rcuenta.getText().toString().equals("")) && !(Rcontraseña.getText().toString().equals(""))
+                        !(Rcuenta.getText().toString().equals("")) && !(Rcontraseña.getText().toString().equals(""))&& !(Rmonto.getText().toString().equals(""))
                 ){
                     Cursor cursor = db.chech_if_user_exists(Rusuario.getText().toString());
                     if (cursor.getCount() > 0){
@@ -40,8 +41,10 @@ public class register extends AppCompatActivity {
                     }
                     else {
                         db.write();
+                        String cantidad= Rmonto.getText().toString();
+                        int monto = new Integer(cantidad).intValue();
                         db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
-                                String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()));
+                                String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()),monto);
                         db.CLOSE();
 
                         Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();

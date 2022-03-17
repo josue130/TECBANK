@@ -6,12 +6,14 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.EditText;
+
 import androidx.annotation.Nullable;
 
 public class SQLiteConnection extends SQLiteOpenHelper {
 
     final String CREATE_TABLE = "CREATE TABLE Customer (ID integer primary key autoincrement,name TEXT," +
-            "correo TEXT,cuenta TEXT, contraseña TEXT)";
+            "correo TEXT,cuenta TEXT, contraseña TEXT, monto integer)";
 
     public SQLiteConnection(@Nullable Context context) {
         super(context, "Customer.db", null, 1);
@@ -43,12 +45,13 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
     // Metodo que me permite insetar valores en la tabla usuarios
 
-    public void DataInsert(String usuario, String correo, String cuenta, String contraseña){
+    public void DataInsert(String usuario, String correo, String cuenta, String contraseña, Integer monto){
         ContentValues data = new ContentValues();
         data.put("name",usuario);
         data.put("correo",correo);
         data.put("cuenta",cuenta);
         data.put("contraseña",contraseña);
+        data.put("monto",monto);
         this.getWritableDatabase().insert("Customer",null,data);
     }
     // Permite validar si usario existe
@@ -56,7 +59,7 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     public Cursor login(String usuario,String contraseña) throws SQLException{
         Cursor cursor = null;
 
-        cursor = this.getReadableDatabase().query("Customer",new String[]{"ID","name","correo","cuenta","contraseña"},
+        cursor = this.getReadableDatabase().query("Customer",new String[]{"ID","name","correo","cuenta","contraseña","monto"},
                 "name like '"+usuario+"' and contraseña like '"+contraseña+"'"
                 ,null,null,null,null);
 
@@ -66,7 +69,7 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     public Cursor chech_if_user_exists(String usuario) throws SQLException{
         Cursor cursor = null;
 
-        cursor = this.getReadableDatabase().query("Customer",new String[]{"ID","name","correo","cuenta","contraseña"},
+        cursor = this.getReadableDatabase().query("Customer",new String[]{"ID","name","correo","cuenta","contraseña","monto"},
                 "name like '"+usuario+"'"
                 ,null,null,null,null);
 
