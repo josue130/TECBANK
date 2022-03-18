@@ -76,6 +76,16 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor check_cuentaAcreditar(String cuenta) throws  SQLException{
+        Cursor cursor = null;
+
+        cursor = this.getReadableDatabase().query("Customer", new String[]{"ID","name","correo","cuenta","contraseña","monto"},
+                "cuenta like '"+cuenta+"'",
+                null, null,null,null);
+
+        return cursor;
+    }
+
 
 
 

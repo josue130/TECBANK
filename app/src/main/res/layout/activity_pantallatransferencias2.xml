@@ -297,7 +297,7 @@ app:barrierMargin="15dp">
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/codigoConfir"
+                android:id="@+id/montoT"
                 android:layout_width="312dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="9dp"
