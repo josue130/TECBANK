@@ -34,12 +34,12 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/t"
             app:layout_constraintHorizontal_bias="0.48"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="100dp"
@@ -270,177 +270,122 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/vCA3"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="146dp"
-                tools:layout_editor_absoluteY="321dp" />
-
-            <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/fecha"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="277dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/cuenta_acreditada"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="4dp"
-                tools:layout_editor_absoluteY="321dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="19dp"
                 android:text="@string/monto2"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="361dp" />
-
-            <TextView
-                android:id="@+id/vFecha3"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="65dp"
-                tools:layout_editor_absoluteY="277dp" />
-
-            <TextView
-                android:id="@+id/vMonto3"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="61dp"
-                tools:layout_editor_absoluteY="364dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="23dp"
                 android:text="@string/cuenta_acreditada"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="4dp"
-                tools:layout_editor_absoluteY="191dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="23dp"
                 android:text="@string/fecha"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="147dp" />
-
-            <TextView
-                android:id="@+id/vFecha2"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="65dp"
-                tools:layout_editor_absoluteY="146dp" />
-
-            <TextView
-                android:id="@+id/vCA2"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="146dp"
-                tools:layout_editor_absoluteY="191dp" />
-
-            <TextView
-                android:id="@+id/vMonto2"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="64dp"
-                tools:layout_editor_absoluteY="234dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/monto2"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="231dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/fecha"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="16dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="22dp"
                 android:text="@string/cuenta_acreditada"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="4dp"
-                tools:layout_editor_absoluteY="60dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="18dp"
                 android:text="@string/monto2"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="normal|bold"
-                tools:layout_editor_absoluteX="5dp"
-                tools:layout_editor_absoluteY="100dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-            <TextView
-                android:id="@+id/vFecha"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="13dp"
-                android:text="@string/textview"
-                app:layout_constraintStart_toEndOf="@+id/textView9"
-                tools:layout_editor_absoluteY="17dp" />
-
-            <TextView
-                android:id="@+id/vCA"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="@string/textview"
-                tools:layout_editor_absoluteX="146dp"
-                tools:layout_editor_absoluteY="60dp" />
-
-            <TextView
-                android:id="@+id/vMonto"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="@string/textview"
-                app:layout_constraintStart_toEndOf="@+id/textView13"
-                tools:layout_editor_absoluteY="103dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TECBANK">
         <activity
+            android:name=".pantallainformativa"
+            android:exported="false" />
+        <activity
             android:name=".pantallahistorial"
             android:exported="false" />
         <activity
