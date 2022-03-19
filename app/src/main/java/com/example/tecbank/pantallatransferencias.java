@@ -1,5 +1,7 @@
 package com.example.tecbank;
 
+import static java.sql.DriverManager.println;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +19,7 @@ public class pantallatransferencias extends AppCompatActivity {
 
     ImageButton ahorro, historial, info, salir, siguienteT;
     SQLiteConnection db = new SQLiteConnection(this);
+    int res = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +74,26 @@ public class pantallatransferencias extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Cuenta a acreditar no existente ", Toast.LENGTH_LONG).show();
                         cuentaAcreditar.setText("");
                         cuentaAcreditar.findFocus();
+
+                    }else{
+                        Customer customer = new Customer();
+                        int monto_customer=0;
+                        String cantidad= montoT.getText().toString();
+                        int monto = new Integer(cantidad).intValue();
+
+                        db.buscar_monto(customer,cuentaAcreditar.getText().toString());
+                        monto_customer = customer.getMonto();
+                        if (monto <= monto_customer){
+                            db.depositar_monto(cuentaAcreditar.getText().toString(),monto,customer.getMonto());
+                            Toast.makeText(getApplicationContext(),"Correcto'"+customer.getNombre()+"'",Toast.LENGTH_LONG).show();
+
+                        }else{
+                            Toast.makeText(getApplicationContext(),"Fondos insuficientes",Toast.LENGTH_LONG).show();
+                            montoT.setText("");
+                            montoT.findFocus();
+                        }
                     }
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Ningún campo puede quedar vacío", Toast.LENGTH_LONG).show();
                 }

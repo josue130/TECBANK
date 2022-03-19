@@ -1,5 +1,7 @@
 package BaseDeDatos;
 
+import static java.sql.DriverManager.println;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -7,8 +9,11 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+
+import com.example.tecbank.Customer;
 
 public class SQLiteConnection extends SQLiteOpenHelper {
 
@@ -84,6 +89,30 @@ public class SQLiteConnection extends SQLiteOpenHelper {
                 null, null,null,null);
 
         return cursor;
+    }
+
+    public void buscar_monto(Customer customer,String cuenta){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor_monto = db.rawQuery("SELECT * FROM CUSTOMER WHERE CUENTA ='"+cuenta+"'",null);
+        if(cursor_monto.moveToFirst()){
+            customer.setId(cursor_monto.getInt(0));
+            customer.setNombre(cursor_monto.getString(1));
+            customer.setCorreo(cursor_monto.getString(2));
+            customer.setCuenta(cursor_monto.getString(3));
+            customer.setContrasenna(cursor_monto.getString(4));
+            customer.setMonto(cursor_monto.getInt(5));
+
+        }
+
+    }
+    public void depositar_monto( String cuenta, int monto,int monto_depositar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto + monto_depositar;
+        if (db != null){
+            db.execSQL("UPDATE CUSTOMER SET MONTO ='"+res+"' WHERE CUENTA='"+cuenta+"'");
+            db.close();
+        }
     }
 
 
