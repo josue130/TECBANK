@@ -61,11 +61,13 @@ public class pantallatransferencias extends AppCompatActivity {
         EditText montoT = findViewById(R.id.montoT);
         EditText cuentaAcreditar = findViewById(R.id.cuentaAcreditar);
         EditText motivoT = findViewById(R.id.motivoT);
+        //EditText usuario_login = findViewById(R.id.usuario);
 
         siguienteT = (ImageButton) findViewById(R.id.botonSigTransfer);
         siguienteT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Toast.makeText(getApplicationContext(),usuario_login.getText(),Toast.LENGTH_LONG).show();
                 if (!(montoT.getText().toString().equals("")) && !(cuentaAcreditar.getText().toString().equals(""))
                         && !(motivoT.getText().toString().equals("")))
                 {
@@ -83,6 +85,7 @@ public class pantallatransferencias extends AppCompatActivity {
 
                         db.buscar_monto(customer,cuentaAcreditar.getText().toString());
                         monto_customer = customer.getMonto();
+
                         if (monto <= monto_customer){
                             db.depositar_monto(cuentaAcreditar.getText().toString(),monto,customer.getMonto());
                             Toast.makeText(getApplicationContext(),"Correcto'"+customer.getNombre()+"'",Toast.LENGTH_LONG).show();

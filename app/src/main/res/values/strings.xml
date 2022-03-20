@@ -24,6 +24,7 @@
     <string name="transferencia_entre_cuentas_tecbank">Transferencia entre cuentas TECBANK</string>
     <string name="motivo_o_concepto">Motivo o Concepto</string>
     <string name="cuenta_a_acreditar">Cuenta a acreditar</string>
+    <string name="cuenta_a_debitar">Cuenta a debitar</string>
     <string name="montoR">Monto</string>
     <string name="c_digo_confirmaci_n">Código confirmación</string>
     <string name="voucher_transferencia">Voucher Transferencia</string>
