@@ -114,6 +114,18 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+    public void obtener_cuenta(Customer customer,String usuario, String contra){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor_cuenta = db.rawQuery("SELECT * FROM CUSTOMER WHERE NAME ='"+usuario+"' AND contraseña='"+contra+"'", null);
+        if (cursor_cuenta.moveToFirst()){
+            customer.setId(cursor_cuenta.getInt(0));
+            customer.setNombre(cursor_cuenta.getString(1));
+            customer.setCorreo(cursor_cuenta.getString(2));
+            customer.setCuenta(cursor_cuenta.getString(3));
+            customer.setContrasenna(cursor_cuenta.getString(4));
+            customer.setMonto(cursor_cuenta.getInt(5));
+        }
+    }
 
 
 

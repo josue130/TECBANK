@@ -17,10 +17,14 @@ public class pantallacuentas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantallacuentas);
-
+        Bundle bundle = getIntent().getExtras();
         numCuenta = (TextView) findViewById(R.id.numCuenta);
         montoCuenta = (TextView) findViewById(R.id.montoCuenta);
         //Mostar la cuenta y la plata que tiene
+        String cuenta = bundle.getString("cuenta");
+        String monto = bundle.getString("monto");
+        numCuenta.setText(cuenta);
+        montoCuenta.setText(monto);
 
 
         ahorro = (ImageButton) findViewById(R.id.botonAhorro);

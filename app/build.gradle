@@ -41,10 +41,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-    implementation files('libs\\javax.ejb.jar')
-    implementation files('libs\\javax.activation-1.1.0.v201105071233.jar')
-    implementation files('libs\\javax.faces-api-2.0.jar')
-    implementation files('libs\\javax-inject.jar')
+
+    
+
+
     implementation files('libs\\mail.jar')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

@@ -52,13 +52,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         if (cursor.getCount() > 0) {
                             // Si el usuario y contraseña existe desde aqui se manda a la siguiente ventana
                             Toast.makeText(getApplicationContext(), "Acceso concedido", Toast.LENGTH_LONG).show();
+                            Customer customer = new Customer();
+                            db.obtener_cuenta(customer,usuario.getText().toString(),password.getText().toString());
+                            Intent it= new Intent(getApplicationContext(),pantallacuentas.class);
+                            it.putExtra("cuenta",customer.getCuenta());
+                            int monto_customer = customer.getMonto();
+                            String monto_string = new String(String.valueOf(monto_customer)).toString();
+                            it.putExtra("monto",monto_string);
+                            startActivity(it);
                             Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
                             i.putExtra("usuario_login",usuario.getText().toString());
-                            startActivity(i);
-                            //
-                            //Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
-                            //i.putExtra("usuario_login",usuario.getText().toString());
                             //startActivity(i);
+
+
+
                         } else {
                             Toast.makeText(getApplicationContext(), "Usuario no encontrado", Toast.LENGTH_LONG).show();
                         }
