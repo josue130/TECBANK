@@ -23,8 +23,8 @@ public class pantallacuentas extends AppCompatActivity {
         //Mostar la cuenta y la plata que tiene
         String cuenta = bundle.getString("cuenta");
         String monto = bundle.getString("monto");
-        numCuenta.setText(cuenta);
-        montoCuenta.setText(monto);
+        numCuenta.setText("Cuenta: '"+cuenta+"'");
+        montoCuenta.setText("Monto: '"+monto+"'");
 
 
         ahorro = (ImageButton) findViewById(R.id.botonAhorro);
@@ -41,6 +41,7 @@ public class pantallacuentas extends AppCompatActivity {
             public void onClick(View view) {
                 //
                 Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });

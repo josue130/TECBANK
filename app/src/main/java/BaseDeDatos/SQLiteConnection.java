@@ -91,9 +91,9 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void buscar_monto(Customer customer,String usuario){
+    public void buscar_monto(Customer customer,String cuenta){
         SQLiteDatabase db = getReadableDatabase();
-            Cursor cursor_monto = db.rawQuery("SELECT * FROM CUSTOMER WHERE NAME ='"+usuario+"'",null);
+            Cursor cursor_monto = db.rawQuery("SELECT * FROM CUSTOMER WHERE CUENTA ='"+cuenta+"'",null);
         if(cursor_monto.moveToFirst()){
             customer.setId(cursor_monto.getInt(0));
             customer.setNombre(cursor_monto.getString(1));

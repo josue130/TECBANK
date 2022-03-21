@@ -19,7 +19,6 @@ public class pantallatransferencias extends AppCompatActivity {
 
     ImageButton ahorro, historial, info, salir, siguienteT;
     SQLiteConnection db = new SQLiteConnection(this);
-    int res = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,18 +77,22 @@ public class pantallatransferencias extends AppCompatActivity {
                         cuentaAcreditar.findFocus();
 
                     }else{
-                        String usuario = getIntent().getStringExtra("usuario_login");
+                        Bundle bundle = getIntent().getExtras();
+                        //String usuario = bundle.getString("usuario_login");
+                        String cuen = bundle.getString("cuenta");
                         Customer customer = new Customer();
                         int monto_customer=0;
                         String cantidad= montoT.getText().toString();
                         int monto = new Integer(cantidad).intValue();
 
-                        db.buscar_monto(customer,usuario);
+                        db.buscar_monto(customer,cuen);
                         monto_customer = customer.getMonto();
 
                         if (monto <= monto_customer){
-                            db.depositar_monto(cuentaAcreditar.getText().toString(),monto,customer.getMonto());
+                            //db.depositar_monto(cuentaAcreditar.getText().toString(),monto,customer.getMonto());
                             Toast.makeText(getApplicationContext(),"Correcto'"+customer.getNombre()+"'",Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(getApplicationContext(),pantallatransferencias2.class);
+                            startActivity(i);
 
                         }else{
                             Toast.makeText(getApplicationContext(),"Fondos insuficientes",Toast.LENGTH_LONG).show();

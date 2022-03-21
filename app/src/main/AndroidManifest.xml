@@ -22,6 +22,9 @@
             android:name=".pantallatransferencias"
             android:exported="false" />
         <activity
+            android:name=".pantallatransferencias2"
+            android:exported="false" />
+        <activity
             android:name=".pantallacuentas"
             android:exported="false" />
         <activity

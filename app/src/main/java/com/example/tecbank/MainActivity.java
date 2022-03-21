@@ -54,14 +54,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             Toast.makeText(getApplicationContext(), "Acceso concedido", Toast.LENGTH_LONG).show();
                             Customer customer = new Customer();
                             db.obtener_cuenta(customer,usuario.getText().toString(),password.getText().toString());
+
+                            Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
+                            i.putExtra("usuario_login",usuario.getText().toString());
+
                             Intent it= new Intent(getApplicationContext(),pantallacuentas.class);
                             it.putExtra("cuenta",customer.getCuenta());
                             int monto_customer = customer.getMonto();
                             String monto_string = new String(String.valueOf(monto_customer)).toString();
                             it.putExtra("monto",monto_string);
+
                             startActivity(it);
-                            Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
-                            i.putExtra("usuario_login",usuario.getText().toString());
+
                             //startActivity(i);
 
 
