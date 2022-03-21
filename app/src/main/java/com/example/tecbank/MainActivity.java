@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         EditText usuario = findViewById(R.id.usuario);
         EditText password = findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
+
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             // Si el usuario y contraseña existe desde aqui se manda a la siguiente ventana
                             Toast.makeText(getApplicationContext(), "Acceso concedido", Toast.LENGTH_LONG).show();
                             Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
+                            i.putExtra("usuario_login",usuario.getText().toString());
                             startActivity(i);
                         } else {
                             Toast.makeText(getApplicationContext(), "Usuario no encontrado", Toast.LENGTH_LONG).show();

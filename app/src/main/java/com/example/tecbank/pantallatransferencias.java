@@ -78,12 +78,13 @@ public class pantallatransferencias extends AppCompatActivity {
                         cuentaAcreditar.findFocus();
 
                     }else{
+                        String usuario = getIntent().getStringExtra("usuario_login");
                         Customer customer = new Customer();
                         int monto_customer=0;
                         String cantidad= montoT.getText().toString();
                         int monto = new Integer(cantidad).intValue();
 
-                        db.buscar_monto(customer,cuentaAcreditar.getText().toString());
+                        db.buscar_monto(customer,usuario);
                         monto_customer = customer.getMonto();
 
                         if (monto <= monto_customer){
