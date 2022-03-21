@@ -22,6 +22,7 @@ public class pantallacuentas extends AppCompatActivity {
         montoCuenta = (TextView) findViewById(R.id.montoCuenta);
         //Mostar la cuenta y la plata que tiene
 
+
         ahorro = (ImageButton) findViewById(R.id.botonAhorro);
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override

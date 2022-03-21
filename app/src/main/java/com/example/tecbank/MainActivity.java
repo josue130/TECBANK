@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
                             i.putExtra("usuario_login",usuario.getText().toString());
                             startActivity(i);
+                            //
+                            //Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
+                            //i.putExtra("usuario_login",usuario.getText().toString());
+                            //startActivity(i);
                         } else {
                             Toast.makeText(getApplicationContext(), "Usuario no encontrado", Toast.LENGTH_LONG).show();
                         }
