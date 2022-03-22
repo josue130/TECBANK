@@ -87,7 +87,7 @@ public class pantallatransferencias2 extends AppCompatActivity {
                         Customer customerAcreditar = new Customer();
                         db.buscar_monto(customerAcreditar,cuentaAcreditar);
                         db.depositar_monto(cuentaAcreditar,customerAcreditar.getMonto(),monto_int);
-                        String voucher_email = "Buen dia '"+usuario+"'\nVoucher Transaccion\nFecha:'"+fecha+"'\nCuenta origen:'"+cuentaDebitar+"'\nCuenta destino:'"+cuentaAcreditar+"'\nMonto:'"+montoTrasfer+"'\nMotivo:'"+motivo+"'\n\nGracias por su preferirnos!!\n\n\nAtentamente, TECBANK Costa Rica\n'";
+                        String voucher_email = "Buen dia '"+usuario+"'\nVoucher Transaccion\nFecha:'"+fecha+"'\nCuenta origen:'"+cuentaDebitar+"'\nCuenta destino:'"+cuentaAcreditar+"'\nMonto:'"+montoTrasfer+"'\nMotivo:'"+motivo+"'\n\nGracias por su preferencia!!\n\n\nAtentamente, TECBANK Costa Rica\n'";
                         Toast.makeText(getApplicationContext(), "Exitoso", Toast.LENGTH_SHORT).show();
                         sendMailVoucher(correo_usuario,"Comprobante transaccion",voucher_email);
                         Intent i = new Intent(getApplicationContext(),pantallatransferencias3.class);
