@@ -20,14 +20,18 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     final String CREATE_TABLE = "CREATE TABLE Customer (ID integer primary key autoincrement,name TEXT," +
             "correo TEXT,cuenta TEXT, contraseña TEXT, monto integer)";
 
+    final String CREATE_TABLE_VOUCHER = "CREATE TABLE Voucher (ID integer primary key autoincrement, name TEXT," +
+        "cuentaDebitar TEXT, cuentaAcreditar TEXT, monto integer, motivo TEXT, fecha DATETIME)";
+
     public SQLiteConnection(@Nullable Context context) {
         super(context, "Customer.db", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(CREATE_TABLE);
+        sqLiteDatabase.execSQL(CREATE_TABLE); sqLiteDatabase.execSQL(CREATE_TABLE_VOUCHER);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
@@ -59,6 +63,18 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         data.put("monto",monto);
         this.getWritableDatabase().insert("Customer",null,data);
     }
+
+    public void DataInsertVoucher(String name, String cuentaDebitar, String cuentaAcreditar, int monto, String motivo, String fecha){
+        ContentValues data = new ContentValues();
+        data.put("name",name);
+        data.put("cuentaDebitar",cuentaDebitar);
+        data.put("cuentaAcreditar",cuentaAcreditar);
+        data.put("monto",monto);
+        data.put("motivo",motivo);
+        data.put("fecha",fecha);
+        this.getWritableDatabase().insert("Voucher",null,data);
+    }
+
     // Permite validar si usario existe
 
     public Cursor login(String usuario,String contraseña) throws SQLException{
@@ -111,6 +127,15 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         res = monto + monto_depositar;
         if (db != null){
             db.execSQL("UPDATE CUSTOMER SET MONTO ='"+res+"' WHERE CUENTA='"+cuenta+"'");
+            db.close();
+        }
+    }
+    public void debitar_monto(String cuenta, int monto, int monto_debitar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto - monto_debitar;
+        if (db != null){
+            db.execSQL("UPDATE CUSTOMER SET MONTO ='"+res+"'WHERE CUENTA ='"+cuenta+"'");
             db.close();
         }
     }

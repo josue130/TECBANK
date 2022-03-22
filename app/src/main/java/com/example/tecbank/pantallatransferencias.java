@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.Random;
+
 import BaseDeDatos.SQLiteConnection;
 
 public class pantallatransferencias extends AppCompatActivity {
@@ -91,7 +93,18 @@ public class pantallatransferencias extends AppCompatActivity {
                         if (monto <= monto_customer){
                             //db.depositar_monto(cuentaAcreditar.getText().toString(),monto,customer.getMonto());
                             Toast.makeText(getApplicationContext(),"Correcto'"+customer.getNombre()+"'",Toast.LENGTH_LONG).show();
+                            int codigo = generarCodigo();
+                            sendMail(customer.getCorreo(),"codigo","El código es= '"+codigo+"'");
+
+                            String codigo_verficicacion = new String(String.valueOf(codigo)).toString();
                             Intent i = new Intent(getApplicationContext(),pantallatransferencias2.class);
+                            i.putExtra("usuario",customer.getNombre());
+                            i.putExtra("correo_usuario",customer.getCorreo());
+                            i.putExtra("cuentaDebitar",customer.getCuenta());
+                            i.putExtra("cuentaAcreditar",cuentaAcreditar.getText().toString());
+                            i.putExtra("monto",montoT.getText().toString());
+                            i.putExtra("motivo",motivoT.getText().toString());
+                            i.putExtra("codigo_verificacion",codigo_verficicacion);
                             startActivity(i);
 
                         }else{
@@ -106,5 +119,17 @@ public class pantallatransferencias extends AppCompatActivity {
                 }
             }
         });
+    }
+    private void sendMail(String correo,String subject,String message){
+        JavaMailAPI javaMailAPI = new JavaMailAPI(this,correo,subject,message);
+        javaMailAPI.execute();
+
+    }
+    private  int generarCodigo(){
+        int max = 10000;
+        Random random = new Random();
+        random.setSeed(System.currentTimeMillis());
+        int codigo = random.nextInt(max);
+        return codigo;
     }
 }

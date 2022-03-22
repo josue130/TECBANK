@@ -31,7 +31,7 @@ public class pantallacuentas extends AppCompatActivity {
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+
             }
         });
 
