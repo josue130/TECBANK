@@ -2,6 +2,7 @@ package com.example.tecbank;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -57,6 +58,8 @@ public class pantallatransferencias3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                startActivity(i);
             }
         });
 
@@ -65,6 +68,8 @@ public class pantallatransferencias3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),pantallahistorial.class);
+                startActivity(i);
             }
         });
 
@@ -73,6 +78,8 @@ public class pantallatransferencias3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),pantallainformativa.class);
+                startActivity(i);
             }
         });
 
@@ -81,6 +88,8 @@ public class pantallatransferencias3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             }
         });
 

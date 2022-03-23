@@ -287,15 +287,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="86dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="21dp"
                 android:layout_marginEnd="86dp"
-                android:layout_marginBottom="53dp"
                 android:backgroundTint="#FF5858"
                 android:text="@string/eliminar_sobreA"
-                app:layout_constraintBottom_toTopOf="@+id/botonHS"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/botonCS"
+                app:layout_constraintTop_toBottomOf="@+id/botonCRD"
                 tools:ignore="TextContrastCheck" />
 
             <Button
@@ -303,14 +302,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="82dp"
+                android:layout_marginTop="22dp"
                 android:layout_marginEnd="82dp"
-                android:layout_marginBottom="57dp"
+                android:layout_marginBottom="46dp"
                 android:backgroundTint="#FF5858"
                 android:text="@string/historial_sobreA"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botonES"
                 tools:ignore="TextContrastCheck" />
+
+            <Button
+                android:id="@+id/botonCRD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="77dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="77dp"
+                android:backgroundTint="#FF5858"
+                android:text="Cragar y Retirar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botonCS" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

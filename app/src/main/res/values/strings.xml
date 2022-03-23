@@ -72,5 +72,8 @@
     <string name="ubicacionesS">Ubicaciones</string>
     <string name="horario_sucursalesT">Horario Sucursales:</string>
     <string name="contacto_y_correoT">Contacto y Correo:</string>
+    <string name="cargar_y_retirar_dineroT">Cargar y Retirar Dinero</string>
+    <string name="cargarDS">Cargar</string>
+    <string name="retirarDS">Retirar</string>
 
 </resources>

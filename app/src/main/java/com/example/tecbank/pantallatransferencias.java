@@ -29,6 +29,8 @@ public class pantallatransferencias extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                startActivity(i);
             }
         });
 
@@ -37,6 +39,8 @@ public class pantallatransferencias extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),pantallahistorial.class);
+                startActivity(i);
             }
         });
 
@@ -45,6 +49,8 @@ public class pantallatransferencias extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),pantallainformativa.class);
+                startActivity(i);
             }
         });
 
@@ -53,11 +59,13 @@ public class pantallatransferencias extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             }
         });
 
-        EditText montoT = findViewById(R.id.nombreSobreE);
-        EditText cuentaAcreditar = findViewById(R.id.cantidadDineroS);
+        EditText montoT = findViewById(R.id.nombreSobreCRD);
+        EditText cuentaAcreditar = findViewById(R.id.cantidadDineroCRD);
         EditText motivoT = findViewById(R.id.motivoT);
         //EditText usuario_login = findViewById(R.id.usuario);
 

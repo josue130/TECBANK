@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TECBANK">
         <activity
+            android:name=".pantallaahorroCargarRetirar"
+            android:exported="false" />
+        <activity
             android:name=".pantallaahorro4"
             android:exported="false" />
         <activity

@@ -266,7 +266,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/nombreSobreE"
+                android:id="@+id/nombreSobreCRD"
                 android:layout_width="312dp"
                 android:layout_height="49dp"
                 android:layout_marginStart="9dp"
@@ -299,7 +299,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/botonEliminar"
+                android:id="@+id/botonCargarD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="34dp"

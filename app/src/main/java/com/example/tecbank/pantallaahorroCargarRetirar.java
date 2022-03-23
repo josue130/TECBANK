@@ -6,27 +6,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 import BaseDeDatos.SQLiteConnection;
 
-public class pantallaahorro extends AppCompatActivity {
+public class pantallaahorroCargarRetirar extends AppCompatActivity {
+
     ImageButton ahorro, historial, info, salir;
-    Button crearS, eliminarS, cargarRetirar, historialS;
+    Button cargarSobre, retirarSobre;
+    EditText nombreSobre, cantidadDinero;
+
+
 
     SQLiteConnection db = new SQLiteConnection(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pantallaahorro);
+        setContentView(R.layout.activity_pantallaahorro_cargar_retirar);
+
+        nombreSobre = (EditText) findViewById(R.id.nombreSobreCRD);
+        cantidadDinero = (EditText) findViewById(R.id.cantidadDineroCRD);
 
         ahorro = (ImageButton) findViewById(R.id.botonAhorro);
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                Intent i = new Intent(getApplicationContext(), pantallaahorro.class);
                 startActivity(i);
             }
         });
@@ -36,7 +44,7 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),pantallahistorial.class);
+                Intent i = new Intent(getApplicationContext(), pantallahistorial.class);
                 startActivity(i);
             }
         });
@@ -46,7 +54,7 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),pantallainformativa.class);
+                Intent i = new Intent(getApplicationContext(), pantallainformativa.class);
                 startActivity(i);
             }
         });
@@ -56,46 +64,24 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(i);
             }
         });
-        crearS = (Button) findViewById(R.id.botonCS);
-        crearS.setOnClickListener(new View.OnClickListener() {
+
+        cargarSobre = (Button) findViewById(R.id.botonCargarD);
+        cargarSobre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),pantallaahorro2.class);
-                startActivity(i);
             }
         });
-        cargarRetirar = (Button) findViewById(R.id.botonCRD);
-        cargarRetirar.setOnClickListener(new View.OnClickListener() {
+        retirarSobre = (Button) findViewById(R.id.button2);
+        retirarSobre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),pantallaahorroCargarRetirar.class);
-                startActivity(i);
-            }
-        });
-        eliminarS = (Button) findViewById(R.id.botonES);
-        eliminarS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //
-                Intent i= new Intent(getApplicationContext(),pantallaahorro3.class);
-                startActivity(i);
-            }
-        });
-        historialS = (Button) findViewById(R.id.botonHS);
-        historialS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //
-                Intent i= new Intent(getApplicationContext(),pantallaahorro4.class);
-                startActivity(i);
             }
         });
     }
-
 }
