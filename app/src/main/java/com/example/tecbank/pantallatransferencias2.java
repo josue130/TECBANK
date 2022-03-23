@@ -57,7 +57,7 @@ public class pantallatransferencias2 extends AppCompatActivity {
             }
         });
 
-        EditText montoT = findViewById(R.id.montoT);
+        EditText montoT = findViewById(R.id.nombreSobreE);
 
         salir = (ImageButton) findViewById(R.id.botonCodConfirm);
         salir.setOnClickListener(new View.OnClickListener() {

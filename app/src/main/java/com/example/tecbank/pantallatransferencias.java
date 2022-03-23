@@ -1,14 +1,11 @@
 package com.example.tecbank;
 
-import static java.sql.DriverManager.println;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -59,8 +56,8 @@ public class pantallatransferencias extends AppCompatActivity {
             }
         });
 
-        EditText montoT = findViewById(R.id.montoT);
-        EditText cuentaAcreditar = findViewById(R.id.cuentaAcreditar);
+        EditText montoT = findViewById(R.id.nombreSobreE);
+        EditText cuentaAcreditar = findViewById(R.id.cantidadDineroS);
         EditText motivoT = findViewById(R.id.motivoT);
         //EditText usuario_login = findViewById(R.id.usuario);
 

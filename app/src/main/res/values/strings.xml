@@ -55,5 +55,16 @@
     <string name="informativaT">Informativa</string>
     <string name="sucursalesT">Sucursales:</string>
     <string name="contactoT">Contacto:</string>
+    <string name="sobres_de_ahorro">Sobres de Ahorro</string>
+    <string name="crear_sobreA">Crear Sobre</string>
+    <string name="eliminar_sobreA">Eliminar Sobre</string>
+    <string name="historial_sobreA">Historial Sobre</string>
+    <string name="cantidad_dineroCS">Cantidad dinero</string>
+    <string name="nombre_sobreCs">Nombre sobre</string>
+    <string name="crearCS">Crear</string>
+    <string name="crear_sobreT">Crear Sobre</string>
+    <string name="eliminarS">Eliminar</string>
+    <string name="eliminar_sobreT">Eliminar Sobre</string>
+    <string name="historial_de_sobresT">Historial de Sobres</string>
 
 </resources>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tecbank">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,6 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TECBANK">
+        <activity
+            android:name=".pantallaahorro4"
+            android:exported="false" />
+        <activity
+            android:name=".pantallaahorro3"
+            android:exported="false" />
+        <activity
+            android:name=".pantallaahorro2"
+            android:exported="false" />
+        <activity
+            android:name=".pantallaahorro"
+            android:exported="false" />
         <activity
             android:name=".pantallainformativa"
             android:exported="false" />
