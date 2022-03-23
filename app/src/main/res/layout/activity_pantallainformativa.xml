@@ -262,26 +262,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="139dp"
-            android:text="@string/contactoT"
+            android:text="@string/contacto_y_correoT"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="normal|bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-        <TextView
-            android:id="@+id/textView21"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="46dp"
-            android:text="@string/sucursalesT"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="normal|bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout14"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
@@ -293,7 +279,9 @@
             android:background="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/textView2"
@@ -307,6 +295,95 @@
             android:textStyle="normal|bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="166dp"
+            android:text="@string/horario_sucursalesT"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout13"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout13"
+            android:layout_width="337dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="19dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/textView26"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout14"
+            android:layout_width="337dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="96dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/tel_2896_234_091"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="76dp"
+                android:layout_marginBottom="9dp"
+                android:text="@string/tecbankmovil_gmail_com"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/botonUGM"
+            android:layout_width="164dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="98dp"
+            android:layout_marginEnd="98dp"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/ubicacionesS"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/textView22"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/visualizaci_n_sucursales"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal|bold"
+            app:layout_constraintBottom_toTopOf="@+id/botonUGM"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

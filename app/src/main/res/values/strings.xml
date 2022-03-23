@@ -66,5 +66,11 @@
     <string name="eliminarS">Eliminar</string>
     <string name="eliminar_sobreT">Eliminar Sobre</string>
     <string name="historial_de_sobresT">Historial de Sobres</string>
+    <string name="visualizaci_n_sucursales">Visualización Sucursales:</string>
+    <string name="tel_2896_234_091">Tel: 2896-234-091</string>
+    <string name="tecbankmovil_gmail_com">tecbankmovil@gmail.com</string>
+    <string name="ubicacionesS">Ubicaciones</string>
+    <string name="horario_sucursalesT">Horario Sucursales:</string>
+    <string name="contacto_y_correoT">Contacto y Correo:</string>
 
 </resources>
