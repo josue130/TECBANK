@@ -20,6 +20,9 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     final String CREATE_TABLE = "CREATE TABLE Customer (ID integer primary key autoincrement,name TEXT," +
             "correo TEXT,cuenta TEXT, contraseña TEXT, monto integer)";
 
+    final String CREATE_TABLE_CUENTAEXTERNA = "CREATE TABLE CuentaExterna (ID integer primary key autoincrement,name TEXT," +
+            "correo TEXT,cuenta TEXT, monto integer)";
+
     final String CREATE_TABLE_VOUCHER = "CREATE TABLE Voucher (ID integer primary key autoincrement, name TEXT," +
         "cuentaDebitar TEXT, cuentaAcreditar TEXT, monto integer, motivo TEXT, fecha DATETIME)";
 
@@ -29,7 +32,9 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(CREATE_TABLE); sqLiteDatabase.execSQL(CREATE_TABLE_VOUCHER);
+        sqLiteDatabase.execSQL(CREATE_TABLE);
+        sqLiteDatabase.execSQL(CREATE_TABLE_VOUCHER);
+        sqLiteDatabase.execSQL(CREATE_TABLE_CUENTAEXTERNA);
     }
 
 
@@ -62,6 +67,14 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         data.put("contraseña",contraseña);
         data.put("monto",monto);
         this.getWritableDatabase().insert("Customer",null,data);
+    }
+    public void DataInsertCuentaExterna(String usuario, String correo, String cuenta, Integer monto){
+        ContentValues data = new ContentValues();
+        data.put("name",usuario);
+        data.put("correo",correo);
+        data.put("cuenta",cuenta);
+        data.put("monto",monto);
+        this.getWritableDatabase().insert("CuentaExterna",null,data);
     }
 
     public void DataInsertVoucher(String name, String cuentaDebitar, String cuentaAcreditar, int monto, String motivo, String fecha){
@@ -101,6 +114,15 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         Cursor cursor = null;
 
         cursor = this.getReadableDatabase().query("Customer", new String[]{"ID","name","correo","cuenta","contraseña","monto"},
+                "cuenta like '"+cuenta+"'",
+                null, null,null,null);
+
+        return cursor;
+    }
+    public Cursor check_cuentaAcreditarExterna(String cuenta) throws  SQLException{
+        Cursor cursor = null;
+
+        cursor = this.getReadableDatabase().query("CuentaExterna", new String[]{"ID","name","correo","cuenta","monto"},
                 "cuenta like '"+cuenta+"'",
                 null, null,null,null);
 

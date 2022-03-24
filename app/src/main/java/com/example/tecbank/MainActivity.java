@@ -18,6 +18,7 @@ import BaseDeDatos.SQLiteConnection;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
+
     SQLiteConnection db = new SQLiteConnection(this);
 
     Button registrarse, login;
@@ -27,6 +28,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        db.DataInsertCuentaExterna("Ramon", "example@gmail.com","BL17450",40000);
+        db.DataInsertCuentaExterna("Sara", "example2@gmail.com","BL99411",40000);
+        db.DataInsertCuentaExterna("Sofia", "example3@gmail.com","BL23862",40000);
 
         registrarse = (Button) findViewById(R.id.registrarse);
         registrarse.setOnClickListener(new View.OnClickListener() {

@@ -75,5 +75,8 @@
     <string name="cargar_y_retirar_dineroT">Cargar y Retirar Dinero</string>
     <string name="cargarDS">Cargar</string>
     <string name="retirarDS">Retirar</string>
+    <string name="transferencia_entre_cuentasTT">Transferencia entre cuentas</string>
+    <string name="cuenta_externaBT">Cuenta Externa</string>
+    <string name="cuenta_tecbankBT">Cuenta TECBANK</string>
 
 </resources>

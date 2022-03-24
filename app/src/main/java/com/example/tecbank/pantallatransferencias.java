@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -16,7 +17,8 @@ import BaseDeDatos.SQLiteConnection;
 
 public class pantallatransferencias extends AppCompatActivity {
 
-    ImageButton ahorro, historial, info, salir, siguienteT;
+    ImageButton ahorro, historial, info, salir;
+    Button siguienteT, cuentaExterna;
     SQLiteConnection db = new SQLiteConnection(this);
 
     @Override
@@ -69,7 +71,7 @@ public class pantallatransferencias extends AppCompatActivity {
         EditText motivoT = findViewById(R.id.motivoT);
         //EditText usuario_login = findViewById(R.id.usuario);
 
-        siguienteT = (ImageButton) findViewById(R.id.botonSigTransfer);
+        siguienteT = (Button) findViewById(R.id.botonSigTransfer);
         siguienteT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -122,6 +124,30 @@ public class pantallatransferencias extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Ningún campo puede quedar vacío", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        cuentaExterna = (Button) findViewById(R.id.botonCuentaExterna);
+        cuentaExterna.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!(montoT.getText().toString().equals("")) && !(cuentaAcreditar.getText().toString().equals(""))
+                        && !(motivoT.getText().toString().equals("")))
+                {
+                    Cursor cursor = db.check_cuentaAcreditarExterna(cuentaAcreditar.getText().toString());
+                    if (cursor.getCount() < 1) {
+                        Toast.makeText(getApplicationContext(), "Cuenta a acreditar no existente ", Toast.LENGTH_LONG).show();
+                        cuentaAcreditar.setText("");
+                        cuentaAcreditar.findFocus();
+
+                    }else{
+                        CuentaExterna cuentaExterna = new CuentaExterna();
+                    }
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Ningún campo puede quedar vacío", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
