@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.tecbank.CuentaExterna;
 import com.example.tecbank.Customer;
 
 public class SQLiteConnection extends SQLiteOpenHelper {
@@ -143,6 +144,20 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         }
 
     }
+
+    public void buscar_monto_CuentaExterna(CuentaExterna cuentaExterna, String cuenta){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor_monto = db.rawQuery("SELECT * FROM CUENTAEXTERNA WHERE CUENTA ='"+cuenta+"'",null);
+        if(cursor_monto.moveToFirst()){
+            cuentaExterna.setId(cursor_monto.getInt(0));
+            cuentaExterna.setNombre(cursor_monto.getString(1));
+            cuentaExterna.setCorreo(cursor_monto.getString(2));
+            cuentaExterna.setCuenta(cursor_monto.getString(3));
+            cuentaExterna.setMonto(cursor_monto.getInt(4));
+
+        }
+
+    }
     public void depositar_monto( String cuenta, int monto,int monto_depositar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -152,6 +167,16 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+    public void depositar_monto_CuentaExterna( String cuenta, int monto,int monto_depositar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto + monto_depositar;
+        if (db != null){
+            db.execSQL("UPDATE CUENTAEXTERNA SET MONTO ='"+res+"' WHERE CUENTA='"+cuenta+"'");
+            db.close();
+        }
+    }
+
     public void debitar_monto(String cuenta, int monto, int monto_debitar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -161,6 +186,16 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+    public void debitar_monto_CuentaExterna(String cuenta, int monto, int monto_debitar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto - monto_debitar;
+        if (db != null){
+            db.execSQL("UPDATE CUENTAEXTERNA SET MONTO ='"+res+"'WHERE CUENTA ='"+cuenta+"'");
+            db.close();
+        }
+    }
+
     public void obtener_cuenta(Customer customer,String usuario, String contra){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor_cuenta = db.rawQuery("SELECT * FROM CUSTOMER WHERE NAME ='"+usuario+"' AND contraseña='"+contra+"'", null);
