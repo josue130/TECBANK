@@ -185,7 +185,7 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:contentDescription="@string/app_name"
             android:text="@string/ahorro"
@@ -199,10 +199,10 @@
         <ImageButton
             android:id="@+id/botonHistorial"
             android:layout_width="42dp"
-            android:layout_height="36dp"
+            android:layout_height="40dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/historial"
+            android:background="@drawable/account"
             android:contentDescription="@string/app_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -212,16 +212,16 @@
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
             android:contentDescription="@string/app_name"
-            android:text="@string/historial"
+            android:text="@string/cuentaVERT"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="normal|bold"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/botonHistorial" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

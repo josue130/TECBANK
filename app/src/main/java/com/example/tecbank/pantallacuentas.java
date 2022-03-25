@@ -51,7 +51,7 @@ public class pantallacuentas extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
-                Intent i= new Intent(getApplicationContext(),pantallahistorial.class);
+                Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
                 startActivity(i);
             }
         });

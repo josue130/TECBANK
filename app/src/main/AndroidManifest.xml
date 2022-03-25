@@ -30,9 +30,6 @@
             android:name=".pantallainformativa"
             android:exported="false" />
         <activity
-            android:name=".pantallahistorial"
-            android:exported="false" />
-        <activity
             android:name=".pantallatransferencias3"
             android:exported="false" />
         <activity

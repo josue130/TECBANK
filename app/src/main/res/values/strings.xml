@@ -78,5 +78,6 @@
     <string name="transferencia_entre_cuentasTT">Transferencia entre cuentas</string>
     <string name="cuenta_externaBT">Cuenta Externa</string>
     <string name="cuenta_tecbankBT">Cuenta TECBANK</string>
+    <string name="cuentaVERT">Cuenta</string>
 
 </resources>
