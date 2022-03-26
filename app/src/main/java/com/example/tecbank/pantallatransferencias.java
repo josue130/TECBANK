@@ -31,7 +31,10 @@ public class pantallatransferencias extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
                 Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -88,13 +91,13 @@ public class pantallatransferencias extends AppCompatActivity {
                     }else{
                         Bundle bundle = getIntent().getExtras();
                         //String usuario = bundle.getString("usuario_login");
-                        String cuen = bundle.getString("cuenta");
+                        String cuenta = bundle.getString("cuenta");
                         Customer customer = new Customer();
                         int monto_customer=0;
                         String cantidad= montoT.getText().toString();
                         int monto = new Integer(cantidad).intValue();
 
-                        db.buscar_monto(customer,cuen);
+                        db.buscar_monto(customer,cuenta);
                         monto_customer = customer.getMonto();
 
                         if (monto <= monto_customer){

@@ -58,7 +58,10 @@ public class pantallatransferencias3 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
                 Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });

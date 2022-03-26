@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import BaseDeDatos.SQLiteConnection;
 
 public class pantallaahorro extends AppCompatActivity {
-    ImageButton ahorro, historial, info, salir;
+    ImageButton ahorro, historial, info,botonTransfer, salir;
     Button crearS, eliminarS, cargarRetirar, historialS;
 
     SQLiteConnection db = new SQLiteConnection(this);
@@ -20,13 +20,19 @@ public class pantallaahorro extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantallaahorro);
+        Bundle bundle = getIntent().getExtras();
+        String cuenta = bundle.getString("cuenta");
 
         ahorro = (ImageButton) findViewById(R.id.botonAhorro);
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+
                 Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -37,6 +43,19 @@ public class pantallaahorro extends AppCompatActivity {
             public void onClick(View view) {
                 //
                 Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
+                startActivity(i);
+            }
+        });
+
+        botonTransfer = (ImageButton) findViewById(R.id.botonTransfer);
+        botonTransfer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Intent i= new Intent(getApplicationContext(),pantallatransferencias.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -65,7 +84,11 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+
                 Intent i= new Intent(getApplicationContext(),pantallaahorro2.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -74,7 +97,11 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+
                 Intent i= new Intent(getApplicationContext(),pantallaahorroCargarRetirar.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -83,7 +110,10 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
                 Intent i= new Intent(getApplicationContext(),pantallaahorro3.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -92,7 +122,10 @@ public class pantallaahorro extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
                 Intent i= new Intent(getApplicationContext(),pantallaahorro4.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });

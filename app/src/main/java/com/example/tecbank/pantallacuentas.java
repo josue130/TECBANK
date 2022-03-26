@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class pantallacuentas extends AppCompatActivity {
 
@@ -24,14 +25,17 @@ public class pantallacuentas extends AppCompatActivity {
         String cuenta = bundle.getString("cuenta");
         String monto = bundle.getString("monto");
         numCuenta.setText("Cuenta: '"+cuenta+"'");
-        montoCuenta.setText("Monto: '"+monto+"'");
+        montoCuenta.setText("Monto disponible: '"+monto+"'");
 
 
         ahorro = (ImageButton) findViewById(R.id.botonAhorro);
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(getApplicationContext(),"cuenta es:'"+cuenta+"'",Toast.LENGTH_LONG).show();
+                Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                i.putExtra("cuenta",cuenta);
+                startActivity(i);
             }
         });
 

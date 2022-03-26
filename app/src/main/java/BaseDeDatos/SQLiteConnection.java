@@ -15,17 +15,24 @@ import androidx.annotation.Nullable;
 
 import com.example.tecbank.CuentaExterna;
 import com.example.tecbank.Customer;
+import com.example.tecbank.SobreAhorro;
 
 public class SQLiteConnection extends SQLiteOpenHelper {
 
     final String CREATE_TABLE = "CREATE TABLE Customer (ID integer primary key autoincrement,name TEXT," +
             "correo TEXT,cuenta TEXT, contraseña TEXT, monto integer)";
 
+    final String CREATE_TABLE_VOUCHER = "CREATE TABLE Voucher (ID integer primary key autoincrement, name TEXT," +
+        "cuentaDebitar TEXT, cuentaAcreditar TEXT, monto integer, motivo TEXT, fecha DATETIME)";
+
+    final  String CREATE_TABLE_SOBREAHORRO = "CREATE TABLE SobreAhorro (ID integer primary key autoincrement, cuenta TEXT," +
+        "namesobre TEXT, monto integer)";
+    final  String CREATE_TABLE_HISTORIALSOBRES = "CREATE TABLE HistorialSobres (ID integer primary key autoincrement, cuenta TEXT," +
+            "namesobre TEXT, tipo TEXT, monto integer)";
+
     final String CREATE_TABLE_CUENTAEXTERNA = "CREATE TABLE CuentaExterna (ID integer primary key autoincrement,name TEXT," +
             "correo TEXT,cuenta TEXT, monto integer)";
 
-    final String CREATE_TABLE_VOUCHER = "CREATE TABLE Voucher (ID integer primary key autoincrement, name TEXT," +
-        "cuentaDebitar TEXT, cuentaAcreditar TEXT, monto integer, motivo TEXT, fecha DATETIME)";
 
     public SQLiteConnection(@Nullable Context context) {
         super(context, "Customer.db", null, 1);
@@ -35,6 +42,8 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(CREATE_TABLE);
         sqLiteDatabase.execSQL(CREATE_TABLE_VOUCHER);
+        sqLiteDatabase.execSQL(CREATE_TABLE_SOBREAHORRO);
+        sqLiteDatabase.execSQL(CREATE_TABLE_HISTORIALSOBRES);
         sqLiteDatabase.execSQL(CREATE_TABLE_CUENTAEXTERNA);
     }
 
@@ -69,14 +78,6 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         data.put("monto",monto);
         this.getWritableDatabase().insert("Customer",null,data);
     }
-    public void DataInsertCuentaExterna(String usuario, String correo, String cuenta, Integer monto){
-        ContentValues data = new ContentValues();
-        data.put("name",usuario);
-        data.put("correo",correo);
-        data.put("cuenta",cuenta);
-        data.put("monto",monto);
-        this.getWritableDatabase().insert("CuentaExterna",null,data);
-    }
 
     public void DataInsertVoucher(String name, String cuentaDebitar, String cuentaAcreditar, int monto, String motivo, String fecha){
         ContentValues data = new ContentValues();
@@ -88,6 +89,25 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         data.put("fecha",fecha);
         this.getWritableDatabase().insert("Voucher",null,data);
     }
+
+    public void DataInsertSobreAhorro(String namesobre, String cuenta,  int monto){
+        ContentValues data = new ContentValues();
+        data.put("namesobre",namesobre);
+        data.put("cuenta",cuenta);
+        data.put("monto",monto);
+
+        this.getWritableDatabase().insert("SobreAhorro",null,data);
+    }
+    public void DataInsertHistorialSobres(String namesobre, String cuenta, String tipo,  int monto){
+        ContentValues data = new ContentValues();
+        data.put("namesobre",namesobre);
+        data.put("cuenta",cuenta);
+        data.put("tipo",tipo);
+        data.put("monto",monto);
+
+        this.getWritableDatabase().insert("HistorialSobres",null,data);
+    }
+
 
     // Permite validar si usario existe
 
@@ -111,6 +131,59 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         return cursor;
     }
 
+
+
+    public Cursor check_cuentaAcreditarExterna(String cuenta) throws  SQLException{
+        Cursor cursor = null;
+
+        cursor = this.getReadableDatabase().query("CuentaExterna", new String[]{"ID","name","correo","cuenta","monto"},
+                "cuenta like '"+cuenta+"'",
+                null, null,null,null);
+
+        return cursor;
+    }
+    public void buscar_monto_CuentaExterna(CuentaExterna cuentaExterna, String cuenta){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor_monto = db.rawQuery("SELECT * FROM CUENTAEXTERNA WHERE CUENTA ='"+cuenta+"'",null);
+        if(cursor_monto.moveToFirst()){
+            cuentaExterna.setId(cursor_monto.getInt(0));
+            cuentaExterna.setNombre(cursor_monto.getString(1));
+            cuentaExterna.setCorreo(cursor_monto.getString(2));
+            cuentaExterna.setCuenta(cursor_monto.getString(3));
+            cuentaExterna.setMonto(cursor_monto.getInt(4));
+
+        }
+
+    }
+    public void depositar_monto_CuentaExterna( String cuenta, int monto,int monto_depositar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto + monto_depositar;
+        if (db != null){
+            db.execSQL("UPDATE CUENTAEXTERNA SET MONTO ='"+res+"' WHERE CUENTA='"+cuenta+"'");
+            db.close();
+        }
+    }
+    public void debitar_monto_CuentaExterna(String cuenta, int monto, int monto_debitar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto - monto_debitar;
+        if (db != null){
+            db.execSQL("UPDATE CUENTAEXTERNA SET MONTO ='"+res+"'WHERE CUENTA ='"+cuenta+"'");
+            db.close();
+        }
+    }
+
+
+    public void DataInsertCuentaExterna(String usuario, String correo, String cuenta, Integer monto){
+        ContentValues data = new ContentValues();
+        data.put("name",usuario);
+        data.put("correo",correo);
+        data.put("cuenta",cuenta);
+        data.put("monto",monto);
+        this.getWritableDatabase().insert("CuentaExterna",null,data);
+    }
+
     public Cursor check_cuentaAcreditar(String cuenta) throws  SQLException{
         Cursor cursor = null;
 
@@ -120,11 +193,11 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
         return cursor;
     }
-    public Cursor check_cuentaAcreditarExterna(String cuenta) throws  SQLException{
+    public Cursor check_sobre_ahorro(String cuenta,String namesobre) throws  SQLException{
         Cursor cursor = null;
 
-        cursor = this.getReadableDatabase().query("CuentaExterna", new String[]{"ID","name","correo","cuenta","monto"},
-                "cuenta like '"+cuenta+"'",
+        cursor = this.getReadableDatabase().query("SobreAhorro", new String[]{"ID","cuenta","namesobre","monto"},
+                "cuenta like '"+cuenta+"'and namesobre like'"+namesobre+"'",
                 null, null,null,null);
 
         return cursor;
@@ -144,20 +217,6 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         }
 
     }
-
-    public void buscar_monto_CuentaExterna(CuentaExterna cuentaExterna, String cuenta){
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor_monto = db.rawQuery("SELECT * FROM CUENTAEXTERNA WHERE CUENTA ='"+cuenta+"'",null);
-        if(cursor_monto.moveToFirst()){
-            cuentaExterna.setId(cursor_monto.getInt(0));
-            cuentaExterna.setNombre(cursor_monto.getString(1));
-            cuentaExterna.setCorreo(cursor_monto.getString(2));
-            cuentaExterna.setCuenta(cursor_monto.getString(3));
-            cuentaExterna.setMonto(cursor_monto.getInt(4));
-
-        }
-
-    }
     public void depositar_monto( String cuenta, int monto,int monto_depositar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -167,16 +226,6 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
-    public void depositar_monto_CuentaExterna( String cuenta, int monto,int monto_depositar){
-        SQLiteDatabase db = getReadableDatabase();
-        int res = 0;
-        res = monto + monto_depositar;
-        if (db != null){
-            db.execSQL("UPDATE CUENTAEXTERNA SET MONTO ='"+res+"' WHERE CUENTA='"+cuenta+"'");
-            db.close();
-        }
-    }
-
     public void debitar_monto(String cuenta, int monto, int monto_debitar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -186,16 +235,6 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
-    public void debitar_monto_CuentaExterna(String cuenta, int monto, int monto_debitar){
-        SQLiteDatabase db = getReadableDatabase();
-        int res = 0;
-        res = monto - monto_debitar;
-        if (db != null){
-            db.execSQL("UPDATE CUENTAEXTERNA SET MONTO ='"+res+"'WHERE CUENTA ='"+cuenta+"'");
-            db.close();
-        }
-    }
-
     public void obtener_cuenta(Customer customer,String usuario, String contra){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor_cuenta = db.rawQuery("SELECT * FROM CUSTOMER WHERE NAME ='"+usuario+"' AND contraseña='"+contra+"'", null);
@@ -206,6 +245,43 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             customer.setCuenta(cursor_cuenta.getString(3));
             customer.setContrasenna(cursor_cuenta.getString(4));
             customer.setMonto(cursor_cuenta.getInt(5));
+        }
+    }
+    public  void obtener_info_sobreAhorro(SobreAhorro sobreAhorro, String cuenta, String namesobre){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor_sobres = db.rawQuery("SELECT * FROM SobreAhorro WHERE NAMESOBRE='"+namesobre+"' AND CUENTA ='"+cuenta+"'",null);
+        if (cursor_sobres.moveToFirst()){
+            sobreAhorro.setId(cursor_sobres.getInt(0));
+            sobreAhorro.setCuenta(cursor_sobres.getString(1));
+            sobreAhorro.setNamesobre(cursor_sobres.getString(2));
+            sobreAhorro.setMonto(cursor_sobres.getInt(3));
+        }
+    }
+
+    public void cargar_sobre(String cuenta, String namesobre, int montoSobre, int montoCargar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = montoSobre + montoCargar;
+        if (db != null){
+            db.execSQL("UPDATE SobreAhorro SET MONTO ='"+res+"'WHERE CUENTA ='"+cuenta+"' AND NAMESOBRE ='"+namesobre+"'");
+            db.close();
+        }
+
+    }
+    public  void retirar_sobre(String cuenta, String namesobre, int monto, int montoRetirar){
+        SQLiteDatabase db = getReadableDatabase();
+        int res = 0;
+        res = monto - montoRetirar;
+        if (db != null){
+            db.execSQL("UPDATE SobreAhorro SET MONTO ='"+res+"'WHERE CUENTA ='"+cuenta+"' AND NAMESOBRE ='"+namesobre+"'");
+            db.close();
+        }
+    }
+    public void eliminar_sobre(String cuenta, String namesobre){
+        SQLiteDatabase db = getReadableDatabase();
+        if (db != null){
+            db.execSQL("DELETE FROM SobreAhorro WHERE CUENTA='"+cuenta+"'AND NAMESOBRE='"+namesobre+"'");
+            db.close();
         }
     }
 
