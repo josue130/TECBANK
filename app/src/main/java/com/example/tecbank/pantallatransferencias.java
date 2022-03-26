@@ -144,7 +144,38 @@ public class pantallatransferencias extends AppCompatActivity {
                         cuentaAcreditar.findFocus();
 
                     }else{
-                        CuentaExterna cuentaExterna = new CuentaExterna();
+                        Bundle bundle = getIntent().getExtras();
+                        String cuen = bundle.getString("cuenta");
+                        Customer customer = new Customer();
+                        int monto_customer=0;
+                        String cantidad= montoT.getText().toString();
+                        int monto = new Integer(cantidad).intValue();
+                        db.buscar_monto(customer,cuen);
+                        monto_customer = customer.getMonto();
+                        if (monto + 1294 <= monto_customer){
+                            Toast.makeText(getApplicationContext(),"Correcto'"+customer.getNombre()+"'",Toast.LENGTH_LONG).show();
+                            int codigo = generarCodigo();
+                            sendMail(customer.getCorreo(),"codigo","El código es= '"+codigo+"'");
+                            String codigo_verficicacion = new String(String.valueOf(codigo)).toString();
+                            Intent i = new Intent(getApplicationContext(),TranferenciaExtenerna.class);
+                            i.putExtra("usuario",customer.getNombre());
+                            i.putExtra("correo_usuario",customer.getCorreo());
+                            i.putExtra("cuentaDebitar",customer.getCuenta());
+                            i.putExtra("cuentaAcreditar",cuentaAcreditar.getText().toString());
+                            i.putExtra("monto",montoT.getText().toString());
+                            i.putExtra("motivo",motivoT.getText().toString());
+                            i.putExtra("codigo_verificacion",codigo_verficicacion);
+                            startActivity(i);
+
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"Fondos insuficientes",Toast.LENGTH_LONG).show();
+                            montoT.setText("");
+                            montoT.findFocus();
+                        }
+
+
+
                     }
 
                 } else {

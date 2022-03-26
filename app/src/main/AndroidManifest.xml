@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TECBANK">
         <activity
+            android:name=".TranferenciaExtenerna"
+            android:exported="false" />
+        <activity
+            android:name=".GoogleMaps"
+            android:exported="false" />
+        <activity
             android:name=".pantallaahorroCargarRetirar"
             android:exported="false" />
         <activity
