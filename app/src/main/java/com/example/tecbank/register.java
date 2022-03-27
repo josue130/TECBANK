@@ -37,23 +37,28 @@ public class register extends AppCompatActivity {
                         if (Rcorreo.getText().toString().length() >= 10){
                             if (Rcuenta.getText().toString().length() >= 6){
                                 if (Rcontraseña.getText().toString().length() >= 6){
-                                    Cursor cursor = db.chech_if_user_exists(Rusuario.getText().toString());
-                                    if (cursor.getCount() > 0){
-                                        Toast.makeText(getApplicationContext(), "El usuario ingresado ya existe, ingrese otro", Toast.LENGTH_LONG).show();
-                                        Rusuario.setText("");
-                                        Rusuario.findFocus();
-                                    }
-                                    else {
-                                        db.write();
-                                        String cantidad= Rmonto.getText().toString();
-                                        int monto = new Integer(cantidad).intValue();
-                                        db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
-                                                String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()),monto);
-                                        db.CLOSE();
+                                    if (Rmonto.getText().toString().length() >= 1000){
+                                        Cursor cursor = db.chech_if_user_exists(Rusuario.getText().toString());
+                                        if (cursor.getCount() > 0){
+                                            Toast.makeText(getApplicationContext(), "El usuario ingresado ya existe, ingrese otro", Toast.LENGTH_LONG).show();
+                                            Rusuario.setText("");
+                                            Rusuario.findFocus();
+                                        }
+                                        else {
+                                            db.write();
+                                            String cantidad= Rmonto.getText().toString();
+                                            int monto = new Integer(cantidad).intValue();
+                                            db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
+                                                    String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()),monto);
+                                            db.CLOSE();
 
-                                        Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();
-                                        Intent i= new Intent(getApplicationContext(),MainActivity.class);
-                                        startActivity(i);
+                                            Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();
+                                            Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                                            startActivity(i);
+                                        }
+                                    }
+                                    else{
+                                        Toast.makeText(getApplicationContext(), "El monto mínimo inicial debe ser 1000", Toast.LENGTH_LONG).show();
                                     }
                                 }
                                 else{
