@@ -33,24 +33,45 @@ public class register extends AppCompatActivity {
                 if ( !(Rusuario.getText().toString().equals("")) && !(Rcorreo.getText().toString().equals("")) &&
                         !(Rcuenta.getText().toString().equals("")) && !(Rcontraseña.getText().toString().equals(""))&& !(Rmonto.getText().toString().equals(""))
                 ){
-                    Cursor cursor = db.chech_if_user_exists(Rusuario.getText().toString());
-                    if (cursor.getCount() > 0){
-                        Toast.makeText(getApplicationContext(), "El usuario ingresado ya existe, ingrese otro", Toast.LENGTH_LONG).show();
-                        Rusuario.setText("");
-                        Rusuario.findFocus();
-                    }
-                    else {
-                        db.write();
-                        String cantidad= Rmonto.getText().toString();
-                        int monto = new Integer(cantidad).intValue();
-                        db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
-                                String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()),monto);
-                        db.CLOSE();
+                    if (Rusuario.getText().toString().length() >= 6){
+                        if (Rcorreo.getText().toString().length() >= 10){
+                            if (Rcuenta.getText().toString().length() >= 6){
+                                if (Rcontraseña.getText().toString().length() >= 6){
+                                    Cursor cursor = db.chech_if_user_exists(Rusuario.getText().toString());
+                                    if (cursor.getCount() > 0){
+                                        Toast.makeText(getApplicationContext(), "El usuario ingresado ya existe, ingrese otro", Toast.LENGTH_LONG).show();
+                                        Rusuario.setText("");
+                                        Rusuario.findFocus();
+                                    }
+                                    else {
+                                        db.write();
+                                        String cantidad= Rmonto.getText().toString();
+                                        int monto = new Integer(cantidad).intValue();
+                                        db.DataInsert(String.valueOf(Rusuario.getText()),String.valueOf(Rcorreo.getText()),
+                                                String.valueOf(Rcuenta.getText()),String.valueOf(Rcontraseña.getText()),monto);
+                                        db.CLOSE();
 
-                        Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();
-                        Intent i= new Intent(getApplicationContext(),MainActivity.class);
-                        startActivity(i);
+                                        Toast.makeText(getApplicationContext(),"Registro almacenado con exito",Toast.LENGTH_LONG).show();
+                                        Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                                        startActivity(i);
+                                    }
+                                }
+                                else{
+                                    Toast.makeText(getApplicationContext(), "La contraseña debe ser mayor a 5 caracteres", Toast.LENGTH_LONG).show();
+                                }
+                            }
+                            else{
+                                Toast.makeText(getApplicationContext(), "La cuenta debe ser mayor a 5 dígitos", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "El correo debe ser mayor a 9 carácteres", Toast.LENGTH_LONG).show();
+                        }
                     }
+                    else{
+                        Toast.makeText(getApplicationContext(), "El usuario debe ser mayor a 5 caracteres", Toast.LENGTH_LONG).show();
+                    }
+
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Ningún campo puede quedar vacío", Toast.LENGTH_LONG).show();
