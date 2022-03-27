@@ -65,7 +65,7 @@ public class register extends AppCompatActivity {
                             }
                         }
                         else{
-                            Toast.makeText(getApplicationContext(), "El correo debe ser mayor a 9 carácteres", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "El correo debe ser mayor a 9 caracteres", Toast.LENGTH_LONG).show();
                         }
                     }
                     else{
