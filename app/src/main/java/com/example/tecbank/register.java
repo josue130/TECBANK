@@ -19,7 +19,6 @@ public class register extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         Rcontinuar = (Button) findViewById(R.id.Rcontinuar);
         Rusuario = (EditText) findViewById(R.id.Rusuario);
         Rcorreo = (EditText) findViewById(R.id.Rcorreo);
