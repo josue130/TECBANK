@@ -10,6 +10,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import BaseDeDatos.SQLiteConnection;
 
+/*
+ * Esta clase es la encargada de registrar y validar los datos de entrada
+ * en el momento de registrar clientes en el sistema
+ * */
+
 public class register extends AppCompatActivity {
     Button Rcontinuar;
     EditText Rusuario, Rcorreo, Rcuenta, Rcontraseña,Rmonto;

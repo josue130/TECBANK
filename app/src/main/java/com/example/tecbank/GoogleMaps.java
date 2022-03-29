@@ -8,7 +8,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import android.os.Bundle;
-
 import com.google.android.gms.maps.GoogleMap;
 
 public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback{

@@ -1,23 +1,18 @@
 package com.example.tecbank;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import BaseDeDatos.SQLiteConnection;
 
 public class TranferenciaExtenerna extends AppCompatActivity {
     ImageButton ahorro, historial, info, salir, botonCodConfirm;
     SQLiteConnection db = new SQLiteConnection(this);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +71,11 @@ public class TranferenciaExtenerna extends AppCompatActivity {
 
                 if (!(montoT.getText().toString().equals(""))){
                     if (montoT.getText().toString().equals(codigo_verificacion)){
-
                         int monto_int = new Integer(montoTrasfer).intValue() ;
-
-
                         Customer customerDebitar = new Customer();
                         CuentaExterna cuenta = new CuentaExterna();
                         db.buscar_monto(customerDebitar,cuentaDebitar);
                         db.debitar_monto(cuentaDebitar,customerDebitar.getMonto(),monto_int +1294 );
-
                         Customer customerAcreditar = new Customer();
                         db.buscar_monto_CuentaExterna(cuenta,cuentaAcreditar);
                         db.depositar_monto_CuentaExterna(cuentaAcreditar,cuenta.getMonto(),monto_int);

@@ -11,13 +11,11 @@ import com.example.tecbank.CuentaExterna;
 import com.example.tecbank.Customer;
 import com.example.tecbank.SobreAhorro;
 
-
     /*
     * Esta clase es la encargada de hacer la conexión
     * con la base de datos para así lograr hacer
     * todas las consultas necesarias para el proyecto
     * */
-
 
 public class SQLiteConnection extends SQLiteOpenHelper {
 

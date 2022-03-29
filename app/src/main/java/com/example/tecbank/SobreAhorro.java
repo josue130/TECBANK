@@ -1,5 +1,10 @@
 package com.example.tecbank;
 
+/*
+ * Esta clase se encarga de mapear todos los atributos
+ * de un sobre de ahorro
+ * */
+
 public class SobreAhorro {
     private  int id;
     private  String namesobre;

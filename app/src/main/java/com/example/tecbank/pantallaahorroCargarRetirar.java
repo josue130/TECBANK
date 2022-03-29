@@ -1,7 +1,6 @@
 package com.example.tecbank;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -18,9 +17,6 @@ public class pantallaahorroCargarRetirar extends AppCompatActivity {
     ImageButton ahorro, historial, info, salir;
     Button cargarSobre, retirarSobre;
     EditText nombreSobre, cantidadDinero;
-
-
-
     SQLiteConnection db = new SQLiteConnection(this);
 
     @Override
