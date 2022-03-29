@@ -1,5 +1,10 @@
 package com.example.tecbank;
 
+/*
+ * Esta clase es la encargada de mapear todos los datos
+ * requeridos para la cuenta externa
+ * */
+
 public class CuentaExterna {
 
     public int getId() {

@@ -1,21 +1,23 @@
 package BaseDeDatos;
 
-import static java.sql.DriverManager.println;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.EditText;
-import android.widget.Toast;
-
 import androidx.annotation.Nullable;
-
 import com.example.tecbank.CuentaExterna;
 import com.example.tecbank.Customer;
 import com.example.tecbank.SobreAhorro;
+
+
+    /*
+    * Esta clase es la encargada de hacer la conexión
+    * con la base de datos para así lograr hacer
+    * todas las consultas necesarias para el proyecto
+    * */
+
 
 public class SQLiteConnection extends SQLiteOpenHelper {
 
@@ -79,6 +81,13 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         this.getWritableDatabase().insert("Customer",null,data);
     }
 
+
+    /*
+     * Esta función inserta un voucher
+     * a su respectiva tabla en la base
+     * de datos
+     * */
+
     public void DataInsertVoucher(String name, String cuentaDebitar, String cuentaAcreditar, int monto, String motivo, String fecha){
         ContentValues data = new ContentValues();
         data.put("name",name);
@@ -90,6 +99,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         this.getWritableDatabase().insert("Voucher",null,data);
     }
 
+
+    /*
+     * Esta función inserta un sobre de ahorro
+     * a la tabla respectiva en la base de datos
+     * */
+
     public void DataInsertSobreAhorro(String namesobre, String cuenta,  int monto){
         ContentValues data = new ContentValues();
         data.put("namesobre",namesobre);
@@ -98,6 +113,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
         this.getWritableDatabase().insert("SobreAhorro",null,data);
     }
+
+    /*
+     * Esta función inserta información importante
+     * para el historial de sobres
+     * */
+
     public void DataInsertHistorialSobres(String namesobre, String cuenta, String tipo,  int monto){
         ContentValues data = new ContentValues();
         data.put("namesobre",namesobre);
@@ -109,7 +130,7 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     }
 
 
-    // Permite validar si usario existe
+    // Esta función valida la existencia de un usuario y contraseña repetidos en la base de datos
 
     public Cursor login(String usuario,String contraseña) throws SQLException{
         Cursor cursor = null;
@@ -121,7 +142,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor chech_if_user_exists(String usuario) throws SQLException{
+
+    /*
+     * Esta función valida la existencia de un cliente con el mismo usuario
+     * */
+
+    public Cursor check_if_user_exists(String usuario) throws SQLException{
         Cursor cursor = null;
 
         cursor = this.getReadableDatabase().query("Customer",new String[]{"ID","name","correo","cuenta","contraseña","monto"},
@@ -132,6 +158,9 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     }
 
 
+    /*
+     * Esta función valida la existencia de una cuenta externa con el mismo número de cuenta
+     * */
 
     public Cursor check_cuentaAcreditarExterna(String cuenta) throws  SQLException{
         Cursor cursor = null;
@@ -142,6 +171,11 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+    /*
+     * Función que se encarga de buscar el monto de una cuenta externa
+     * */
+
     public void buscar_monto_CuentaExterna(CuentaExterna cuentaExterna, String cuenta){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor_monto = db.rawQuery("SELECT * FROM CUENTAEXTERNA WHERE CUENTA ='"+cuenta+"'",null);
@@ -151,10 +185,13 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             cuentaExterna.setCorreo(cursor_monto.getString(2));
             cuentaExterna.setCuenta(cursor_monto.getString(3));
             cuentaExterna.setMonto(cursor_monto.getInt(4));
-
         }
-
     }
+
+    /*
+     * Esta función se encarga de depositar un monto en una cuenta externa a la tabla en la base de datos
+     * */
+
     public void depositar_monto_CuentaExterna( String cuenta, int monto,int monto_depositar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -164,6 +201,11 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+    /*
+     * Esta función se encarga de debitar un monto en una cuenta externa a la tabla en la base de datos
+     * */
+
     public void debitar_monto_CuentaExterna(String cuenta, int monto, int monto_debitar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -175,6 +217,10 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     }
 
 
+    /*
+     * Esta función se encarga de insertar cuentas externas en tablas de la base de datos
+     * */
+
     public void DataInsertCuentaExterna(String usuario, String correo, String cuenta, Integer monto){
         ContentValues data = new ContentValues();
         data.put("name",usuario);
@@ -183,6 +229,11 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         data.put("monto",monto);
         this.getWritableDatabase().insert("CuentaExterna",null,data);
     }
+
+
+    /*
+     * Esta función se encarga de validar la existencia de la cuenta a acreditar
+     * */
 
     public Cursor check_cuentaAcreditar(String cuenta) throws  SQLException{
         Cursor cursor = null;
@@ -193,6 +244,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+
+    /*
+     * Esta función se encarga de validar que el sobre de ahorro exista en la base de datos
+     * */
+
     public Cursor check_sobre_ahorro(String cuenta,String namesobre) throws  SQLException{
         Cursor cursor = null;
 
@@ -202,6 +259,11 @@ public class SQLiteConnection extends SQLiteOpenHelper {
 
         return cursor;
     }
+
+
+    /*
+     * Esta función se encarga de buscar montos en la base de datos
+     * */
 
     public void buscar_monto(Customer customer,String cuenta){
         SQLiteDatabase db = getReadableDatabase();
@@ -217,6 +279,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         }
 
     }
+
+
+    /*
+     * Esta función se encarga de depositar un monto
+     * */
+
     public void depositar_monto( String cuenta, int monto,int monto_depositar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -226,6 +294,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+
+    /*
+     * Esta función se encarga de debitar un monto en una cuenta en la base de datos
+     * */
+
     public void debitar_monto(String cuenta, int monto, int monto_debitar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -235,6 +309,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+
+    /*
+     * Esta función se encarga de obtener en una cuenta de la base de datos
+     * */
+
     public void obtener_cuenta(Customer customer,String usuario, String contra){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor_cuenta = db.rawQuery("SELECT * FROM CUSTOMER WHERE NAME ='"+usuario+"' AND contraseña='"+contra+"'", null);
@@ -247,6 +327,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             customer.setMonto(cursor_cuenta.getInt(5));
         }
     }
+
+
+    /*
+     * Esta función se encarga de obtener información respecto a un sobre de ahorro
+     * */
+
     public  void obtener_info_sobreAhorro(SobreAhorro sobreAhorro, String cuenta, String namesobre){
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor_sobres = db.rawQuery("SELECT * FROM SobreAhorro WHERE NAMESOBRE='"+namesobre+"' AND CUENTA ='"+cuenta+"'",null);
@@ -258,6 +344,11 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         }
     }
 
+
+    /*
+     * Esta función se encarga de cargar un sobre en la base de datos
+     * */
+
     public void cargar_sobre(String cuenta, String namesobre, int montoSobre, int montoCargar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -268,6 +359,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         }
 
     }
+
+
+    /*
+     * Esta función se encarga de retirar sobres de la base de datos
+     * */
+
     public  void retirar_sobre(String cuenta, String namesobre, int monto, int montoRetirar){
         SQLiteDatabase db = getReadableDatabase();
         int res = 0;
@@ -277,6 +374,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
             db.close();
         }
     }
+
+
+    /*
+     * Esta función se encarga de eliminar sobres de la base de datos
+     * */
+
     public void eliminar_sobre(String cuenta, String namesobre){
         SQLiteDatabase db = getReadableDatabase();
         if (db != null){
@@ -286,7 +389,9 @@ public class SQLiteConnection extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+     * Esta función se encarga de cerrar la base de datos
+     * */
 
     public void CLOSE(){
         this.close();

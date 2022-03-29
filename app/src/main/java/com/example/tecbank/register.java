@@ -37,7 +37,7 @@ public class register extends AppCompatActivity {
                             if (Rcuenta.getText().toString().length() >= 6){
                                 if (Rcontraseña.getText().toString().length() >= 6){
                                     if (Rmonto.getText().toString().length() >= 1000){
-                                        Cursor cursor = db.chech_if_user_exists(Rusuario.getText().toString());
+                                        Cursor cursor = db.check_if_user_exists(Rusuario.getText().toString());
                                         if (cursor.getCount() > 0){
                                             Toast.makeText(getApplicationContext(), "El usuario ingresado ya existe, ingrese otro", Toast.LENGTH_LONG).show();
                                             Rusuario.setText("");

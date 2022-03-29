@@ -1,5 +1,10 @@
 package com.example.tecbank;
 
+/*
+ * Esta clase es la encargada de mapear todos los datos requeridos
+ * para los clientes del sistema
+ * */
+
 public class Customer {
     private  int id;
     private  String nombre;
