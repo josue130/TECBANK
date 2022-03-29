@@ -38,6 +38,7 @@ public class GoogleMaps extends AppCompatActivity implements OnMapReadyCallback{
         mMap.addMarker(new MarkerOptions().position(Alajuela_centro).title("Sucursal TecBank"));
         mMap.addMarker(new MarkerOptions().position(Heredia_Oxi).title("Sucursal TecBank"));
         mMap.addMarker(new MarkerOptions().position(Cartago_MallPM).title("Sucursal TecBank"));
+        mMap.setMaxZoomPreference(1000);
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Sanjose_centro));
 

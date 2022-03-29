@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Jesus/Desktop/Reque/Prueba/TECBANK/app/src/main/res/layout/activity_google_maps.xml" value="0.1875" />
+        <entry key="..\:/Users/Jesus/Desktop/Reque/Prueba/TECBANK/app/src/main/res/layout/activity_pantallaahorro.xml" value="0.1" />
+        <entry key="..\:/Users/Jesus/Desktop/Reque/Prueba/TECBANK/app/src/main/res/layout/activity_pantallaahorro4.xml" value="0.2" />
+        <entry key="..\:/Users/Jesus/Desktop/Reque/Prueba/TECBANK/app/src/main/res/layout/activity_pantallainformativa.xml" value="0.264" />
+        <entry key="..\:/Users/Jesus/Desktop/Reque/Prueba/TECBANK/app/src/main/res/layout/activity_pantallatransferencias.xml" value="0.21739130434782608" />
+        <entry key="..\:/Users/Jesus/Desktop/Reque/Prueba/TECBANK/app/src/main/res/layout/userentry.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/Jesus/Desktop/Reque/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/Jesus/Desktop/Reque/TECBANK/app/src/main/res/layout/activity_pantallacuentas.xml" value="0.2171875" />
         <entry key="..\:/Users/Jesus/Desktop/Reque/TECBANK/app/src/main/res/layout/activity_pantallainformativa.xml" value="0.25416666666666665" />
@@ -11,14 +17,6 @@
         <entry key="..\:/Users/Jesus/Desktop/Reque/TECBANK/app/src/main/res/layout/activity_pantallatransferencias3.xml" value="0.2171875" />
         <entry key="..\:/Users/Jesus/Desktop/Reque/TECBANK/app/src/main/res/layout/activity_register.xml" value="0.2171875" />
         <entry key="..\:/Users/Jesus/Desktop/Reque/TECBANK/app/src/main/res/layout/googlemaps.xml" value="0.2171875" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallaahorro.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallaahorro2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallaahorro3.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallaahorro4.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallaahorro_cargar_retirar.xml" value="0.2265625" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallatransferencias.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallatransferencias2.xml" value="0.13072916666666667" />
-        <entry key="..\:/Users/Jesus/Desktop/Reque/Tecbank1/TECBANK/app/src/main/res/layout/activity_pantallatransferencias3.xml" value="0.18697916666666667" />
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/activity_register.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/content_register.xml" value="0.2767210144927536" />
@@ -27,8 +25,6 @@
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/googlemaps.xml" value="0.1" />
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/prueba.xml" value="0.2767210144927536" />
         <entry key="..\:/Users/Josue/Desktop/TECBANK/app/src/main/res/layout/registro.xml" value="0.2767210144927536" />
-        <entry key="..\:/Users/Usuario/Final/Reque/TECBANK/app/src/main/res/layout/activity_google_maps.xml" value="0.19635416666666666" />
-        <entry key="..\:/Users/Usuario/Final/Reque/TECBANK/app/src/main/res/layout/activity_transferencia_externa.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco/TECBANK/app/src/main/res/layout/activity_gui.xml" value="0.22" />
         <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco/TECBANK/app/src/main/res/layout/activity_pantallacuentas.xml" value="0.25" />
@@ -38,8 +34,17 @@
         <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco/TECBANK/app/src/main/res/layout/activity_pantallatransferencias3.xml" value="0.25" />
         <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco/TECBANK/app/src/main/res/layout/activity_register.xml" value="0.19635416666666666" />
         <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco/TECBANK/app/src/main/res/layout/fragment_g_u_i.xml" value="0.5" />
-        <entry key="..\:/Users/gerso/AndroidStudioProjects/ProyectoReque/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
-        <entry key="..\:/Users/gerso/AndroidStudioProjects/ProyectoReque/TECBANK/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallaahorro.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallaahorro2.xml" value="0.33" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallaahorro3.xml" value="0.33" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallaahorro4.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallaahorro_cargar_retirar.xml" value="0.33" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallacuentas.xml" value="0.33" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallainformativa.xml" value="0.33" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallatransferencias.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallatransferencias2.xml" value="0.25" />
+        <entry key="..\:/Users/Usuario/Proyecto-Reque/Banco2/TECBANK/app/src/main/res/layout/activity_pantallatransferencias3.xml" value="0.33" />
       </map>
     </option>
   </component>

@@ -386,6 +386,12 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         }
     }
 
+    public Cursor getSobres(String cuenta){
+        SQLiteDatabase db = getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from HistorialSobres where cuenta='"+cuenta+"'",null);
+        return cursor;
+    }
+
 
     /*
      * Esta función se encarga de cerrar la base de datos

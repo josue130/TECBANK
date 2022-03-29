@@ -27,7 +27,7 @@ public class pantallaahorro extends AppCompatActivity {
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                //Para obtener el numero de cuenta de las actividades anteriores
                 Bundle bundle = getIntent().getExtras();
                 String cuenta = bundle.getString("cuenta");
 
@@ -79,6 +79,11 @@ public class pantallaahorro extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        /*
+        Funcion para el boton crear sobre
+        Despliega la pantalla de crear sobre
+        El Intent envia la cuenta a la actividad
+         */
         crearS = (Button) findViewById(R.id.botonCS);
         crearS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +97,11 @@ public class pantallaahorro extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        /*
+        Funcion para el boton cargar y retirar sobre
+        Despliega la pantalla de cargar y retirar sobre
+        El Intent envia la cuenta a la actividad
+         */
         cargarRetirar = (Button) findViewById(R.id.botonCRD);
         cargarRetirar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +115,11 @@ public class pantallaahorro extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        /*
+        Funcion para el boton eliminar sobre
+        Despliega la pantalla de eliminar sobre
+        El Intent envia la cuenta a la actividad
+         */
         eliminarS = (Button) findViewById(R.id.botonES);
         eliminarS.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +132,11 @@ public class pantallaahorro extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        /*
+        Funcion para el boton historial sobre
+        Despliega la pantalla de historial sobre
+        El Intent envia la cuenta a la actividad
+         */
         historialS = (Button) findViewById(R.id.botonHS);
         historialS.setOnClickListener(new View.OnClickListener() {
             @Override

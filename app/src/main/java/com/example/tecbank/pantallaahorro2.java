@@ -68,7 +68,11 @@ public class pantallaahorro2 extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        /*
+        Funcion Crear sobre
+        Entradas= nombre del sobre y el monto con que quiere crearse
 
+         */
         crearSobre = (Button) findViewById(R.id.botonCargarD);
         crearSobre.setOnClickListener(new View.OnClickListener() {
             @Override
