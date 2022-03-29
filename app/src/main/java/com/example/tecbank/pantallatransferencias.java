@@ -21,6 +21,15 @@ public class pantallatransferencias extends AppCompatActivity {
     Button siguienteT, cuentaExterna;
     SQLiteConnection db = new SQLiteConnection(this);
 
+    /*
+    En esta clase pantallatranferencias se recolecta la información que usuario digitó para ser validada y así
+    poder continuar con la transferencia.
+    La clase presenta las funciones necesarias para poder moverse entre la aplicación y hacer la conexión con la base de datos para posteriormente
+    hacer los cambios necesarios.
+
+
+    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +52,15 @@ public class pantallatransferencias extends AppCompatActivity {
         historial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Customer customer = new Customer();
+                db.monto_cuenta(customer, cuenta);
+                int monto_int = customer.getMonto();
+                String monto_string = new String(String.valueOf(monto_int)).toString();
                 Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
+                i.putExtra("cuenta",cuenta);
+                i.putExtra("monto",monto_string);
                 startActivity(i);
             }
         });
@@ -53,8 +69,10 @@ public class pantallatransferencias extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
                 Intent i= new Intent(getApplicationContext(),pantallainformativa.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
@@ -63,7 +81,7 @@ public class pantallatransferencias extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+
                 Intent i= new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(i);
             }
@@ -78,7 +96,7 @@ public class pantallatransferencias extends AppCompatActivity {
         siguienteT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(),usuario_login.getText(),Toast.LENGTH_LONG).show();
+
                 if (!(montoT.getText().toString().equals("")) && !(cuentaAcreditar.getText().toString().equals(""))
                         && !(motivoT.getText().toString().equals("")))
                 {
@@ -90,7 +108,6 @@ public class pantallatransferencias extends AppCompatActivity {
 
                     }else{
                         Bundle bundle = getIntent().getExtras();
-                        //String usuario = bundle.getString("usuario_login");
                         String cuenta = bundle.getString("cuenta");
                         Customer customer = new Customer();
                         int monto_customer=0;
@@ -101,7 +118,7 @@ public class pantallatransferencias extends AppCompatActivity {
                         monto_customer = customer.getMonto();
 
                         if (monto <= monto_customer){
-                            //db.depositar_monto(cuentaAcreditar.getText().toString(),monto,customer.getMonto());
+
                             Toast.makeText(getApplicationContext(),"Correcto'"+customer.getNombre()+"'",Toast.LENGTH_LONG).show();
                             int codigo = generarCodigo();
                             sendMail(customer.getCorreo(),"codigo","El código es= '"+codigo+"'");

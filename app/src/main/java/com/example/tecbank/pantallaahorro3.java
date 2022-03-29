@@ -43,8 +43,15 @@ public class pantallaahorro3 extends AppCompatActivity {
         historial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Customer customer = new Customer();
+                db.monto_cuenta(customer, cuenta);
+                int monto_int = customer.getMonto();
+                String monto_string = new String(String.valueOf(monto_int)).toString();
                 Intent i = new Intent(getApplicationContext(), pantallacuentas.class);
+                i.putExtra("cuenta",cuenta);
+                i.putExtra("monto",monto_string);
                 startActivity(i);
             }
         });
@@ -68,23 +75,34 @@ public class pantallaahorro3 extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        /*
+        Funcion Eliminar sobre
+        Entrada = nombre del sobre
+         */
         eliminarSobre = (Button) findViewById(R.id.botonCargarD);
         eliminarSobre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //obtiene la cuenta del usuario
                 Bundle bundle = getIntent().getExtras();
                 String cuenta = bundle.getString("cuenta");
 
+                //validaciones
                 if (!(nombreSobre.getText().toString().equals(""))){
+                    //verifica que el sobre si exista
                     SobreAhorro sobreAhorro = new SobreAhorro();
                     Cursor cursor =  db.check_sobre_ahorro(cuenta,nombreSobre.getText().toString());
                     if (cursor.getCount() > 0){
+                        //se busca el monto del usuario
                         Customer customer = new Customer();
                         db.buscar_monto(customer,cuenta);
+                        //se obtiene la info del sobre a eliminar
                         db.obtener_info_sobreAhorro(sobreAhorro,cuenta,nombreSobre.getText().toString());
+                        //se reintegra el monto del sobre a el total de la cuenta
                         db.depositar_monto(cuenta,customer.getMonto(),sobreAhorro.getMonto());
+                        //insertar el registro del sobre a eliminar
                         db.DataInsertHistorialSobres(nombreSobre.getText().toString(),cuenta,"Eliminar",sobreAhorro.getMonto());
+                        //se elimina el sobre
                         db.eliminar_sobre(cuenta,nombreSobre.getText().toString());
 
                         Toast.makeText(getApplicationContext(),"Elimnado con exito",Toast.LENGTH_LONG).show();

@@ -391,6 +391,19 @@ public class SQLiteConnection extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("Select * from HistorialSobres where cuenta='"+cuenta+"'",null);
         return cursor;
     }
+    public  void monto_cuenta(Customer customer, String cuenta){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor_cuenta = db.rawQuery("SELECT * FROM CUSTOMER WHERE cuenta='"+cuenta+"'", null);
+        if (cursor_cuenta.moveToFirst()){
+            customer.setId(cursor_cuenta.getInt(0));
+            customer.setNombre(cursor_cuenta.getString(1));
+            customer.setCorreo(cursor_cuenta.getString(2));
+            customer.setCuenta(cursor_cuenta.getString(3));
+            customer.setContrasenna(cursor_cuenta.getString(4));
+            customer.setMonto(cursor_cuenta.getInt(5));
+        }
+
+    }
 
 
     /*

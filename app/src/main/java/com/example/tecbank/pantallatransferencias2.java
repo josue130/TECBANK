@@ -19,6 +19,14 @@ public class pantallatransferencias2 extends AppCompatActivity {
     ImageButton ahorro, historial, info, salir, botonCodConfirm;
     SQLiteConnection db = new SQLiteConnection(this);
 
+    /*
+    En esta clase pantallatranferencias2 se obtiene toda la información digitada por el usuario y
+    se implementa un código de autorización por medio del correo electrónico del usuario, de esta manera se tiene un control de
+    identidad. Después se continua con la tranferencía.
+
+    Desde esta clase se forma la estructura del voucher que se le mostrara al usuario.
+
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +37,11 @@ public class pantallatransferencias2 extends AppCompatActivity {
         ahorro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Intent i= new Intent(getApplicationContext(),pantallaahorro.class);
+                i.putExtra("cuenta",cuenta);
+                startActivity(i);
             }
         });
 
@@ -37,7 +49,16 @@ public class pantallatransferencias2 extends AppCompatActivity {
         historial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Customer customer = new Customer();
+                db.monto_cuenta(customer, cuenta);
+                int monto_int = customer.getMonto();
+                String monto_string = new String(String.valueOf(monto_int)).toString();
+                Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
+                i.putExtra("cuenta",cuenta);
+                i.putExtra("monto",monto_string);
+                startActivity(i);
             }
         });
 
@@ -45,7 +66,11 @@ public class pantallatransferencias2 extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Intent i= new Intent(getApplicationContext(),pantallainformativa.class);
+                i.putExtra("cuenta",cuenta);
+                startActivity(i);
             }
         });
 
@@ -53,7 +78,8 @@ public class pantallatransferencias2 extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Intent i= new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(i);
             }
         });
 

@@ -20,6 +20,13 @@ public class pantallatransferencias3 extends AppCompatActivity {
     TextView vFecha, vNombre, vMonto, vCD, vCA, vMotivo;
     SQLiteConnection db = new SQLiteConnection(this);
 
+    /*
+    La clase pantallatransferencia3 es la pantalla que muestra toda la estructura del
+    voucher generada en la clase pantallatransferencia2.
+
+    Tambien cuenta con todos los botones necesarios para navegar en la app
+    */
+
 
 
     @Override
@@ -70,8 +77,15 @@ public class pantallatransferencias3 extends AppCompatActivity {
         historial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
+                Customer customer = new Customer();
+                db.monto_cuenta(customer, cuenta);
+                int monto_int = customer.getMonto();
+                String monto_string = new String(String.valueOf(monto_int)).toString();
                 Intent i= new Intent(getApplicationContext(),pantallacuentas.class);
+                i.putExtra("cuenta",cuenta);
+                i.putExtra("monto",monto_string);
                 startActivity(i);
             }
         });
@@ -80,8 +94,10 @@ public class pantallatransferencias3 extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //
+                Bundle bundle = getIntent().getExtras();
+                String cuenta = bundle.getString("cuenta");
                 Intent i= new Intent(getApplicationContext(),pantallainformativa.class);
+                i.putExtra("cuenta",cuenta);
                 startActivity(i);
             }
         });
